@@ -1,0 +1,256 @@
+[gd_scene load_steps=8 format=3 uid="uid://b33w7424ik0an"]
+
+[ext_resource type="Shader" path="res://crt.gdshader" id="1_p5uk6"]
+[ext_resource type="PackedScene" uid="uid://dxgffpsd4ytdb" path="res://town_otd.tscn" id="2_fq2ek"]
+[ext_resource type="PackedScene" uid="uid://t2ym721dote" path="res://ps1_dither_filer.tscn" id="3_rp05l"]
+[ext_resource type="Script" path="res://round.gd" id="4_fja32"]
+[ext_resource type="Script" path="res://level_code.gd" id="4_q5tcj"]
+[ext_resource type="PackedScene" uid="uid://dpjynt7ffgco2" path="res://models/island.tscn" id="6_w76ge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4orq7"]
+shader = ExtResource("1_p5uk6")
+shader_parameter/range = 0.01
+shader_parameter/noiseQuality = 300.0
+shader_parameter/noiseIntensity = 0.001
+shader_parameter/offsetIntensity = 0.01
+shader_parameter/colorOffsetIntensity = 0.283
+
+[node name="Node" type="Node" node_paths=PackedStringArray("zombie_node_tree", "round_node", "level_node")]
+script = ExtResource("4_q5tcj")
+zombie_node_tree = [NodePath("Node3D/NavigationRegion3D/r1_zombie"), NodePath("Node3D/NavigationRegion3D/r2_zombie"), NodePath("Node3D/NavigationRegion3D/r3_zombie"), NodePath("Node3D/NavigationRegion3D/r4_zombie"), NodePath("Node3D/NavigationRegion3D/r5_zombie"), NodePath("Node3D/NavigationRegion3D/r6_zombie"), NodePath("Node3D/NavigationRegion3D/r7_zombie"), NodePath("Node3D/NavigationRegion3D/r8_zombie"), NodePath("Node3D/NavigationRegion3D/r9_zombie"), NodePath("Node3D/NavigationRegion3D/r10_zombie"), NodePath("Node3D/NavigationRegion3D/r11_zombie"), NodePath("Node3D/NavigationRegion3D/r12_zombie")]
+round_node = NodePath("round")
+level_node = NodePath("Node3D")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_4orq7")
+offset_right = 990.0
+offset_bottom = 563.0
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("3_rp05l")]
+skeleton = NodePath("../Node3D")
+
+[node name="Node3D" parent="." instance=ExtResource("2_fq2ek")]
+
+[node name="zombie2" parent="Node3D/NavigationRegion3D/r1_zombie" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie3" parent="Node3D/NavigationRegion3D/r1_zombie" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie4" parent="Node3D/NavigationRegion3D/r1_zombie" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie5" parent="Node3D/NavigationRegion3D/r1_zombie" index="3" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie6" parent="Node3D/NavigationRegion3D/r1_zombie" index="4" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie" parent="Node3D/NavigationRegion3D/r1_zombie" index="5" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie7" parent="Node3D/NavigationRegion3D/r1_zombie" index="6" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie8" parent="Node3D/NavigationRegion3D/r1_zombie" index="7" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie9" parent="Node3D/NavigationRegion3D/r1_zombie" index="8" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie10" parent="Node3D/NavigationRegion3D/r1_zombie" index="9" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie7" parent="Node3D/NavigationRegion3D/r2_zombie" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie8" parent="Node3D/NavigationRegion3D/r2_zombie" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie9" parent="Node3D/NavigationRegion3D/r2_zombie" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie10" parent="Node3D/NavigationRegion3D/r2_zombie" index="3" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie11" parent="Node3D/NavigationRegion3D/r2_zombie" index="4" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie12" parent="Node3D/NavigationRegion3D/r2_zombie" index="5" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie13" parent="Node3D/NavigationRegion3D/r2_zombie" index="6" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie14" parent="Node3D/NavigationRegion3D/r2_zombie" index="7" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie7" parent="Node3D/NavigationRegion3D/r3_zombie" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie8" parent="Node3D/NavigationRegion3D/r3_zombie" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie9" parent="Node3D/NavigationRegion3D/r3_zombie" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie10" parent="Node3D/NavigationRegion3D/r3_zombie" index="3" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie11" parent="Node3D/NavigationRegion3D/r3_zombie" index="4" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie12" parent="Node3D/NavigationRegion3D/r3_zombie" index="5" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie13" parent="Node3D/NavigationRegion3D/r3_zombie" index="6" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie14" parent="Node3D/NavigationRegion3D/r3_zombie" index="7" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie7" parent="Node3D/NavigationRegion3D/r4_zombie" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie8" parent="Node3D/NavigationRegion3D/r4_zombie" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie9" parent="Node3D/NavigationRegion3D/r4_zombie" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie10" parent="Node3D/NavigationRegion3D/r4_zombie" index="3" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie11" parent="Node3D/NavigationRegion3D/r4_zombie" index="4" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie12" parent="Node3D/NavigationRegion3D/r4_zombie" index="5" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie13" parent="Node3D/NavigationRegion3D/r4_zombie" index="6" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie14" parent="Node3D/NavigationRegion3D/r4_zombie" index="7" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie7" parent="Node3D/NavigationRegion3D/r6_zombie" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie8" parent="Node3D/NavigationRegion3D/r6_zombie" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie9" parent="Node3D/NavigationRegion3D/r6_zombie" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie10" parent="Node3D/NavigationRegion3D/r6_zombie" index="3" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie11" parent="Node3D/NavigationRegion3D/r6_zombie" index="4" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie12" parent="Node3D/NavigationRegion3D/r6_zombie" index="5" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie13" parent="Node3D/NavigationRegion3D/r6_zombie" index="6" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie14" parent="Node3D/NavigationRegion3D/r6_zombie" index="7" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie7" parent="Node3D/NavigationRegion3D/r8_zombie" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie8" parent="Node3D/NavigationRegion3D/r8_zombie" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie9" parent="Node3D/NavigationRegion3D/r8_zombie" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie10" parent="Node3D/NavigationRegion3D/r8_zombie" index="3" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie11" parent="Node3D/NavigationRegion3D/r8_zombie" index="4" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie12" parent="Node3D/NavigationRegion3D/r8_zombie" index="5" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie13" parent="Node3D/NavigationRegion3D/r8_zombie" index="6" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie14" parent="Node3D/NavigationRegion3D/r8_zombie" index="7" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie7" parent="Node3D/NavigationRegion3D/r10_zombie" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie8" parent="Node3D/NavigationRegion3D/r10_zombie" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie9" parent="Node3D/NavigationRegion3D/r10_zombie" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie10" parent="Node3D/NavigationRegion3D/r10_zombie" index="3" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie11" parent="Node3D/NavigationRegion3D/r10_zombie" index="4" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie12" parent="Node3D/NavigationRegion3D/r10_zombie" index="5" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie13" parent="Node3D/NavigationRegion3D/r10_zombie" index="6" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie14" parent="Node3D/NavigationRegion3D/r10_zombie" index="7" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie7" parent="Node3D/NavigationRegion3D/r12_zombie" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie8" parent="Node3D/NavigationRegion3D/r12_zombie" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie9" parent="Node3D/NavigationRegion3D/r12_zombie" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie10" parent="Node3D/NavigationRegion3D/r12_zombie" index="3" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie11" parent="Node3D/NavigationRegion3D/r12_zombie" index="4" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie12" parent="Node3D/NavigationRegion3D/r12_zombie" index="5" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie13" parent="Node3D/NavigationRegion3D/r12_zombie" index="6" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="zombie14" parent="Node3D/NavigationRegion3D/r12_zombie" index="7" node_paths=PackedStringArray("player")]
+player = NodePath("../../../player")
+
+[node name="round" type="Timer" parent="." node_paths=PackedStringArray("level_node")]
+wait_time = 30.0
+autostart = true
+script = ExtResource("4_fja32")
+level_node = NodePath("../Node3D")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.408603, 0.780147, -0.473723, -0.175279, 0.576439, 0.79812, 0.895724, -0.24308, 0.372278, 0, 0, 0)
+light_color = Color(0.925922, 0.779128, 0.578391, 1)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="island" parent="." instance=ExtResource("6_w76ge")]
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, -185, 72, 185)
+
+[node name="island2" parent="." instance=ExtResource("6_w76ge")]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 127, 43, -36)
+
+[node name="island3" parent="." instance=ExtResource("6_w76ge")]
+transform = Transform3D(3.76181, 3.76181, 0, -3.25782, 3.25782, -2.66, -1.8809, 1.8809, 4.60726, 486, -253, -33)
+
+[connection signal="timeout" from="round" to="." method="_on_round_timeout"]
+
+[editable path="Node3D"]

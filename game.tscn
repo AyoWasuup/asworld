@@ -1,0 +1,196 @@
+[gd_scene load_steps=17 format=3 uid="uid://c7ntxhv2u04cy"]
+
+[ext_resource type="PackedScene" uid="uid://kqfku58tcq54" path="res://pause.tscn" id="1_2nn8g"]
+[ext_resource type="Script" path="res://game.gd" id="1_jn1wq"]
+[ext_resource type="PackedScene" uid="uid://chjj8hhu1kp2c" path="res://models/player_wip.glb" id="2_br3a8"]
+[ext_resource type="Script" path="res://main_menu.gd" id="2_e1koe"]
+[ext_resource type="Environment" uid="uid://d18qn4y148hfq" path="res://main_menu.tres" id="2_wqmw6"]
+[ext_resource type="Texture2D" uid="uid://ctd7b2tr7eq3n" path="res://textures/player_metal.jpg" id="4_qbtlp"]
+[ext_resource type="PackedScene" uid="uid://t2ym721dote" path="res://ps1_dither_filer.tscn" id="5_olc57"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_voupm"]
+albedo_texture = ExtResource("4_qbtlp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pn1vs"]
+albedo_texture = ExtResource("4_qbtlp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2iq6"]
+albedo_texture = ExtResource("4_qbtlp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kww6s"]
+albedo_texture = ExtResource("4_qbtlp")
+
+[sub_resource type="Animation" id="Animation_savov"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_wip")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_1w3co"]
+resource_name = "spin"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_wip")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.75, 1, 0, -0.707, 0, 0.707, 1.5, 1, 0, -1, 0, 0, 2.25, 1, 0, 0.707, 0, 0.707, 3, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sd5uq"]
+_data = {
+"RESET": SubResource("Animation_savov"),
+"spin": SubResource("Animation_1w3co")
+}
+
+[sub_resource type="Theme" id="Theme_gw68p"]
+Label/colors/font_color = Color(0.570362, 0, 0.0758491, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0.404785, 0.0114962, 4.81308e-08, 1)
+
+[sub_resource type="Theme" id="Theme_wt4gc"]
+RichTextLabel/font_sizes/normal_font_size = 64
+
+[node name="Game" type="Node"]
+script = ExtResource("1_jn1wq")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_wqmw6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("1_2nn8g")]
+process_mode = 3
+visible = false
+
+[node name="main menu" type="Node3D" parent="."]
+script = ExtResource("2_e1koe")
+
+[node name="player_wip" parent="main menu" instance=ExtResource("2_br3a8")]
+transform = Transform3D(2.05603, 0, 0, 0, 2.05603, 0, 0, 0, 2.05603, -0.984725, -1.3163, -0.555356)
+
+[node name="Cube" parent="main menu/player_wip" index="0"]
+visible = false
+
+[node name="Armature" parent="main menu/player_wip" index="1"]
+transform = Transform3D(1.1616, 0, 0, 0, -5.07753e-08, -1.1616, 0, 1.1616, -5.07753e-08, 0, 0, 0)
+
+[node name="Skeleton3D" parent="main menu/player_wip/Armature" index="0"]
+bones/0/position = Vector3(-0.000698716, -0.0436284, -1.02969)
+bones/0/rotation = Quaternion(-0.72355, -0.00392162, 0.00694719, 0.690226)
+bones/1/rotation = Quaternion(-0.0465876, -0.0027228, 0.00388023, 0.998903)
+bones/2/rotation = Quaternion(0.00526444, -0.00524153, 0.00551322, 0.999957)
+bones/3/rotation = Quaternion(0.00527631, -0.00507935, 0.00565505, 0.999957)
+bones/4/rotation = Quaternion(0.0723445, 0.00395083, -0.0131997, 0.997285)
+bones/5/rotation = Quaternion(0.0153601, -0.0231674, 0.0017713, 0.999612)
+bones/7/rotation = Quaternion(-0.594532, -0.37706, 0.619065, -0.348016)
+bones/8/rotation = Quaternion(0.466023, 0.0759369, 0.00146537, 0.881507)
+bones/9/rotation = Quaternion(-0.00539772, 0.00135127, 0.162681, 0.986663)
+bones/10/rotation = Quaternion(0.0227523, -0.0203983, 0.00139145, 0.999532)
+bones/11/rotation = Quaternion(-0.0374949, 0.00132063, -0.0632817, 0.99729)
+bones/12/rotation = Quaternion(0.221406, 0.0104146, -0.0370902, 0.974421)
+bones/13/rotation = Quaternion(0.140154, 0.00618692, -0.0236611, 0.989828)
+bones/17/rotation = Quaternion(0.629467, -0.359605, 0.573374, 0.381704)
+bones/18/rotation = Quaternion(0.466108, -0.135763, 0.00683743, 0.874223)
+bones/19/rotation = Quaternion(-0.00560277, -0.00119831, -0.150579, 0.988582)
+bones/20/rotation = Quaternion(0.0165592, 0.088155, -0.10164, 0.990769)
+bones/21/rotation = Quaternion(0.132991, 0.0121498, 0.0985478, 0.986131)
+bones/22/rotation = Quaternion(0.173055, -0.0118662, 0.035916, 0.984186)
+bones/23/rotation = Quaternion(0.089278, -0.00819894, 0.0181682, 0.995807)
+bones/27/rotation = Quaternion(0.114873, 0.104804, 0.982102, -0.106282)
+bones/28/rotation = Quaternion(-0.239752, 0.0430018, 0.0215637, 0.969642)
+bones/29/rotation = Quaternion(0.574457, -0.00497044, -0.0621691, 0.816155)
+bones/30/rotation = Quaternion(0.290122, -0.0649535, 0.0196749, 0.95458)
+bones/32/rotation = Quaternion(-0.108478, 0.0416875, 0.989786, 0.082573)
+bones/33/rotation = Quaternion(-0.239804, 0.027244, -0.00501074, 0.970426)
+bones/34/rotation = Quaternion(0.623451, -0.00405025, 0.0276254, 0.781364)
+bones/35/rotation = Quaternion(0.288763, 0.0647757, -0.0195449, 0.955007)
+
+[node name="Cylinder_002" parent="main menu/player_wip/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.0966342, -0.0123962, -0.0115808, 0.00762978, -0.0206977, 0.110474, -0.0132191, -0.102564, -0.0208942, 0.252341, -0.0405042, -1.07257)
+
+[node name="Cylinder_002" parent="main menu/player_wip/Armature/Skeleton3D/Cylinder_002" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_voupm")
+
+[node name="Cube_002" parent="main menu/player_wip/Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.086541, -0.00106443, -0.00961914, 0.00709227, -0.000968789, 0.117282, -0.000789855, -0.125325, -0.000824905, 0.221531, -0.0975948, -1.4612)
+
+[node name="Cube_002" parent="main menu/player_wip/Armature/Skeleton3D/Cube_002" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pn1vs")
+
+[node name="Cylinder_001" parent="main menu/player_wip/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.0961502, -0.0129899, -0.0155333, -0.0109988, 0.0201041, -0.110221, 0.0143272, 0.102609, 0.019629, -0.266936, -0.0713268, -1.06204)
+
+[node name="Cylinder_001" parent="main menu/player_wip/Armature/Skeleton3D/Cylinder_001" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_r2iq6")
+
+[node name="Cube_003" parent="main menu/player_wip/Armature/Skeleton3D" index="3"]
+transform = Transform3D(-0.0862134, -0.00177103, -0.0139528, 0.0103242, -0.00316757, -0.116806, 0.000957729, -0.125281, 0.00315053, -0.237718, -0.0889982, -1.44832)
+
+[node name="Cube_003" parent="main menu/player_wip/Armature/Skeleton3D/Cube_003" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_kww6s")
+
+[node name="player_spin" type="AnimationPlayer" parent="main menu"]
+libraries = {
+"": SubResource("AnimationLibrary_sd5uq")
+}
+
+[node name="Camera3D" type="Camera3D" parent="main menu"]
+transform = Transform3D(1, 0, 0, 0, 0.972804, 0.231629, 0, -0.231629, 0.972804, -2.28046, 2.83366, 3.02341)
+fov = 40.0
+
+[node name="MeshInstance3D" parent="main menu" instance=ExtResource("5_olc57")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="main menu"]
+transform = Transform3D(1, 0, 0, 0, -0.996388, -0.0849126, 0, 0.0849126, -0.996388, 0, 0, 0)
+light_color = Color(0.144063, 0.144063, 0.144063, 1)
+light_energy = 0.125
+light_indirect_energy = 0.0
+
+[node name="Control" type="Control" parent="main menu"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UI" type="Control" parent="main menu/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 640.0
+offset_right = 40.0
+offset_bottom = 680.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="main menu/Control/UI"]
+layout_mode = 1
+offset_right = 74.0
+offset_bottom = 23.0
+theme = SubResource("Theme_gw68p")
+text = "press ESC"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="main menu/Control"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 174.0
+offset_right = 527.0
+offset_bottom = 269.0
+theme = SubResource("Theme_wt4gc")
+text = "ASWORLD"
+
+[node name="Label" type="Label" parent="main menu/Control"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 252.0
+offset_right = 382.0
+offset_bottom = 275.0
+text = "pre-alpha 0.1"
+
+[editable path="main menu/player_wip"]

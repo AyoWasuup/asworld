@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://t2ym721dote"]
+
+[ext_resource type="Shader" path="res://ps1filter.gdshader" id="1_8mafi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ejmva"]
+render_priority = 0
+shader = ExtResource("1_8mafi")
+shader_parameter/color_depth = 5
+shader_parameter/dithering = true
+shader_parameter/resolution_scale = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_xh3kd"]
+material = SubResource("ShaderMaterial_ejmva")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_xh3kd")

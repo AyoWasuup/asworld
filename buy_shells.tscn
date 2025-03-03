@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://bj228lbaajet"]
+
+[ext_resource type="Texture2D" uid="uid://bvaq8qfdhfftr" path="res://textures/skull-refrence.jpg" id="1_2wvs6"]
+[ext_resource type="Script" path="res://buy_shells.gd" id="1_7tpsg"]
+[ext_resource type="AudioStream" uid="uid://dp3ewnsd0chvm" path="res://cha_ching.mp3" id="3_ssere"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ebik"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqrsw"]
+albedo_texture = ExtResource("1_2wvs6")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jgd6m"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="Animation" id="Animation_ldlyq"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_5eegt"]
+resource_name = "spin"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0.2, 0, 1, 1, 0, 0, 0, 1.5, 1, 0, 0.2, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, 0, 0.707, 0, 0.707, 1, 1, 0, 1, 0, 0, 1.5, 1, 0, -0.707, 0, 0.707)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_08by2"]
+_data = {
+"RESET": SubResource("Animation_ldlyq"),
+"spin": SubResource("Animation_5eegt")
+}
+
+[node name="buy shells" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0448243, 0, -0.998995, 0, 1, 0, 0.998995, 0, -0.0448243, 0, 0, 0)
+mesh = SubResource("BoxMesh_6ebik")
+surface_material_override/0 = SubResource("StandardMaterial3D_mqrsw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" groups=["buy_shells"]]
+transform = Transform3D(-0.0448243, 0, 0.998995, 0, 1, 0, -0.998995, 0, -0.0448243, 0, -0.194292, 0)
+script = ExtResource("1_7tpsg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(-0.0448243, 0, -0.998995, 0, 1, 0, 0.998995, 0, -0.0448243, 0, 0.194292, 0)
+shape = SubResource("ConcavePolygonShape3D_jgd6m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_08by2")
+}
+
+[node name="cha ching" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_ssere")

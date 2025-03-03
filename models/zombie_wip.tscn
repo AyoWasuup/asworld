@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvn88cnmeg2su"]
+
+[ext_resource type="PackedScene" uid="uid://nnlpnhdo2sg5" path="res://models/zombie_wip.glb" id="1_1431c"]
+
+[node name="zombie_wip" instance=ExtResource("1_1431c")]

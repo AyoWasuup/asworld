@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1g53ou7l6630"]
+
+[ext_resource type="PackedScene" uid="uid://pg4jt0xt31t6" path="res://player.tscn" id="1_kuoye"]
+[ext_resource type="PackedScene" uid="uid://cff3nui7fp5ut" path="res://zombie.tscn" id="2_586ly"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_slery"]
+vertices = PackedVector3Array(-5.81451, 0, -7.63895, -5.81451, 0, 8.11105, 5.93549, 0, 8.11105, 5.93549, 0, -7.63895)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_slery")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0326233, -0.412842, 0.279465)
+size = Vector3(12.6943, 0.174316, 16.8368)
+
+[node name="player" parent="NavigationRegion3D" instance=ExtResource("1_kuoye")]
+
+[node name="zombie" parent="NavigationRegion3D" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("2_586ly")]
+transform = Transform3D(0.999999, 0.000989759, -0.000274543, -0.000989704, 1, 0.000204157, 0.00027474, -0.000203891, 1, 0, 0, 7.91163)
+player = NodePath("../player")
+area_node = NodePath("..")
+pre_spawn = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.924326, 0.139666, 0.355126, 0, -0.930616, 0.365998, 0.381603, -0.338301, -0.860193, 0, 0, 0)

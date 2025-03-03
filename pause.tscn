@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://kqfku58tcq54"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_s7i3d"]
+[ext_resource type="Texture2D" uid="uid://2nkri43tbej4" path="res://mygamewantsu.png" id="2_o7cl6"]
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s7i3d")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = 62.0
+offset_right = 65.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VSplitContainer"]
+position = Vector2(54, -164)
+texture = ExtResource("2_o7cl6")
+
+[node name="New game" type="Button" parent="VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "New game
+"
+
+[node name="quit" type="Button" parent="VSplitContainer"]
+layout_mode = 2
+text = "Exit to desktop
+"
+
+[connection signal="pressed" from="VSplitContainer/New game" to="." method="_on_new_game_pressed"]
