@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://b33w7424ik0an"]
+[gd_scene load_steps=9 format=3 uid="uid://b33w7424ik0an"]
 
-[ext_resource type="Shader" path="res://crt.gdshader" id="1_p5uk6"]
+[ext_resource type="Shader" path="res://scripts/crt.gdshader" id="1_p5uk6"]
 [ext_resource type="PackedScene" uid="uid://dxgffpsd4ytdb" path="res://town_otd.tscn" id="2_fq2ek"]
 [ext_resource type="PackedScene" uid="uid://t2ym721dote" path="res://ps1_dither_filer.tscn" id="3_rp05l"]
-[ext_resource type="Script" path="res://round.gd" id="4_fja32"]
-[ext_resource type="Script" path="res://level_code.gd" id="4_q5tcj"]
+[ext_resource type="Script" path="res://scripts/round.gd" id="4_fja32"]
+[ext_resource type="Script" path="res://scripts/level_code.gd" id="4_q5tcj"]
 [ext_resource type="PackedScene" uid="uid://dpjynt7ffgco2" path="res://models/island.tscn" id="6_w76ge"]
+[ext_resource type="ArrayMesh" uid="uid://dmvrg8mqd2uuf" path="res://giant.obj" id="7_jv4wb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4orq7"]
 shader = ExtResource("1_p5uk6")
@@ -134,100 +135,46 @@ player = NodePath("../../../player")
 [node name="zombie14" parent="Node3D/NavigationRegion3D/r4_zombie" index="7" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie7" parent="Node3D/NavigationRegion3D/r6_zombie" index="0" node_paths=PackedStringArray("player")]
+[node name="zombie11" parent="Node3D/NavigationRegion3D/r6_zombie" index="0" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie8" parent="Node3D/NavigationRegion3D/r6_zombie" index="1" node_paths=PackedStringArray("player")]
+[node name="zombie12" parent="Node3D/NavigationRegion3D/r6_zombie" index="1" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie9" parent="Node3D/NavigationRegion3D/r6_zombie" index="2" node_paths=PackedStringArray("player")]
+[node name="zombie13" parent="Node3D/NavigationRegion3D/r6_zombie" index="2" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie10" parent="Node3D/NavigationRegion3D/r6_zombie" index="3" node_paths=PackedStringArray("player")]
+[node name="zombie14" parent="Node3D/NavigationRegion3D/r6_zombie" index="3" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie11" parent="Node3D/NavigationRegion3D/r6_zombie" index="4" node_paths=PackedStringArray("player")]
+[node name="zombie11" parent="Node3D/NavigationRegion3D/r8_zombie" index="0" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie12" parent="Node3D/NavigationRegion3D/r6_zombie" index="5" node_paths=PackedStringArray("player")]
+[node name="zombie12" parent="Node3D/NavigationRegion3D/r8_zombie" index="1" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie13" parent="Node3D/NavigationRegion3D/r6_zombie" index="6" node_paths=PackedStringArray("player")]
+[node name="zombie13" parent="Node3D/NavigationRegion3D/r8_zombie" index="2" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie14" parent="Node3D/NavigationRegion3D/r6_zombie" index="7" node_paths=PackedStringArray("player")]
+[node name="zombie14" parent="Node3D/NavigationRegion3D/r8_zombie" index="3" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie7" parent="Node3D/NavigationRegion3D/r8_zombie" index="0" node_paths=PackedStringArray("player")]
+[node name="zombie12" parent="Node3D/NavigationRegion3D/r10_zombie" index="0" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie8" parent="Node3D/NavigationRegion3D/r8_zombie" index="1" node_paths=PackedStringArray("player")]
+[node name="zombie13" parent="Node3D/NavigationRegion3D/r10_zombie" index="1" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie9" parent="Node3D/NavigationRegion3D/r8_zombie" index="2" node_paths=PackedStringArray("player")]
+[node name="zombie14" parent="Node3D/NavigationRegion3D/r10_zombie" index="2" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie10" parent="Node3D/NavigationRegion3D/r8_zombie" index="3" node_paths=PackedStringArray("player")]
+[node name="zombie12" parent="Node3D/NavigationRegion3D/r12_zombie" index="0" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie11" parent="Node3D/NavigationRegion3D/r8_zombie" index="4" node_paths=PackedStringArray("player")]
+[node name="zombie13" parent="Node3D/NavigationRegion3D/r12_zombie" index="1" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
-[node name="zombie12" parent="Node3D/NavigationRegion3D/r8_zombie" index="5" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie13" parent="Node3D/NavigationRegion3D/r8_zombie" index="6" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie14" parent="Node3D/NavigationRegion3D/r8_zombie" index="7" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie7" parent="Node3D/NavigationRegion3D/r10_zombie" index="0" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie8" parent="Node3D/NavigationRegion3D/r10_zombie" index="1" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie9" parent="Node3D/NavigationRegion3D/r10_zombie" index="2" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie10" parent="Node3D/NavigationRegion3D/r10_zombie" index="3" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie11" parent="Node3D/NavigationRegion3D/r10_zombie" index="4" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie12" parent="Node3D/NavigationRegion3D/r10_zombie" index="5" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie13" parent="Node3D/NavigationRegion3D/r10_zombie" index="6" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie14" parent="Node3D/NavigationRegion3D/r10_zombie" index="7" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie7" parent="Node3D/NavigationRegion3D/r12_zombie" index="0" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie8" parent="Node3D/NavigationRegion3D/r12_zombie" index="1" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie9" parent="Node3D/NavigationRegion3D/r12_zombie" index="2" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie10" parent="Node3D/NavigationRegion3D/r12_zombie" index="3" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie11" parent="Node3D/NavigationRegion3D/r12_zombie" index="4" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie12" parent="Node3D/NavigationRegion3D/r12_zombie" index="5" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie13" parent="Node3D/NavigationRegion3D/r12_zombie" index="6" node_paths=PackedStringArray("player")]
-player = NodePath("../../../player")
-
-[node name="zombie14" parent="Node3D/NavigationRegion3D/r12_zombie" index="7" node_paths=PackedStringArray("player")]
+[node name="zombie14" parent="Node3D/NavigationRegion3D/r12_zombie" index="2" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
 
 [node name="round" type="Timer" parent="." node_paths=PackedStringArray("level_node")]
@@ -244,12 +191,20 @@ shadow_enabled = true
 
 [node name="island" parent="." instance=ExtResource("6_w76ge")]
 transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, -185, 72, 185)
+visible = false
 
 [node name="island2" parent="." instance=ExtResource("6_w76ge")]
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 127, 43, -36)
+visible = false
 
 [node name="island3" parent="." instance=ExtResource("6_w76ge")]
 transform = Transform3D(3.76181, 3.76181, 0, -3.25782, 3.25782, -2.66, -1.8809, 1.8809, 4.60726, 486, -253, -33)
+visible = false
+
+[node name="Giant" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.6, 0, 0, 0, 3.6, 0, 0, 0, 3.6, -11, 1, 7)
+visible = false
+mesh = ExtResource("7_jv4wb")
 
 [connection signal="timeout" from="round" to="." method="_on_round_timeout"]
 

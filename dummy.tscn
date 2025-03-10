@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dmtyutev60d0u"]
 
-[ext_resource type="Script" path="res://Dummy.gd" id="1_u61uy"]
+[ext_resource type="Script" path="res://scripts/Dummy.gd" id="1_u61uy"]
 [ext_resource type="Texture2D" uid="uid://bqbwuo25mbrof" path="res://icon.svg" id="2_2sv5e"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dg0su"]

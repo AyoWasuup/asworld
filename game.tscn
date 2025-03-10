@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://c7ntxhv2u04cy"]
 
 [ext_resource type="PackedScene" uid="uid://kqfku58tcq54" path="res://pause.tscn" id="1_2nn8g"]
-[ext_resource type="Script" path="res://game.gd" id="1_jn1wq"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_jn1wq"]
 [ext_resource type="PackedScene" uid="uid://chjj8hhu1kp2c" path="res://models/player_wip.glb" id="2_br3a8"]
-[ext_resource type="Script" path="res://main_menu.gd" id="2_e1koe"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_e1koe"]
 [ext_resource type="Environment" uid="uid://d18qn4y148hfq" path="res://main_menu.tres" id="2_wqmw6"]
 [ext_resource type="Texture2D" uid="uid://ctd7b2tr7eq3n" path="res://textures/player_metal.jpg" id="4_qbtlp"]
 [ext_resource type="PackedScene" uid="uid://t2ym721dote" path="res://ps1_dither_filer.tscn" id="5_olc57"]

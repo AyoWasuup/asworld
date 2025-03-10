@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://bsbbpcdym3uof"]
 
 [ext_resource type="PackedScene" uid="uid://d1nbyl053bgp" path="res://models/hunter.glb" id="1_7g3ov"]
-[ext_resource type="Script" path="res://hunter.gd" id="2_lb2o5"]
-[ext_resource type="AudioStream" uid="uid://t7x1me0pvs4b" path="res://hunter-sound.mp3" id="3_8h0fx"]
+[ext_resource type="Script" path="res://scripts/hunter.gd" id="2_lb2o5"]
+[ext_resource type="AudioStream" uid="uid://t7x1me0pvs4b" path="res://sound/hunter-sound.mp3" id="3_8h0fx"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t7l82"]
 direction = Vector3(0, 0, -1)

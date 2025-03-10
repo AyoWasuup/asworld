@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cugumm4isryhx"]
 
-[ext_resource type="Script" path="res://bone.gd" id="1_lgokr"]
+[ext_resource type="Script" path="res://scripts/bone.gd" id="1_lgokr"]
 [ext_resource type="PackedScene" uid="uid://crmls41iu0rpa" path="res://bloodvfx.tscn" id="2_ch6hk"]
 
 [sub_resource type="Animation" id="Animation_sc8dh"]

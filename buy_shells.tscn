@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bj228lbaajet"]
 
 [ext_resource type="Texture2D" uid="uid://bvaq8qfdhfftr" path="res://textures/skull-refrence.jpg" id="1_2wvs6"]
-[ext_resource type="Script" path="res://buy_shells.gd" id="1_7tpsg"]
-[ext_resource type="AudioStream" uid="uid://dp3ewnsd0chvm" path="res://cha_ching.mp3" id="3_ssere"]
+[ext_resource type="Script" path="res://scripts/buy_shells.gd" id="1_7tpsg"]
+[ext_resource type="AudioStream" uid="uid://dp3ewnsd0chvm" path="res://sound/cha_ching.mp3" id="3_ssere"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6ebik"]
 

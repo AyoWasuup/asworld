@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cff3nui7fp5ut"]
+[gd_scene load_steps=11 format=3 uid="uid://cff3nui7fp5ut"]
 
-[ext_resource type="Script" path="res://zombie.gd" id="1_x0md3"]
+[ext_resource type="Script" path="res://scripts/zombie.gd" id="1_x0md3"]
 [ext_resource type="PackedScene" uid="uid://crmls41iu0rpa" path="res://bloodvfx.tscn" id="2_5oidk"]
 [ext_resource type="PackedScene" uid="uid://nnlpnhdo2sg5" path="res://models/zombie_wip.glb" id="2_m67qm"]
 [ext_resource type="PackedScene" uid="uid://cugumm4isryhx" path="res://bone.tscn" id="2_uake4"]
-[ext_resource type="AudioStream" uid="uid://doxxv27eyyjus" path="res://zombie_scream.mp3" id="3_1s81j"]
-[ext_resource type="AudioStream" uid="uid://cxeonmbiq6847" path="res://attack_swing.wav" id="4_w57qp"]
+[ext_resource type="AudioStream" uid="uid://doxxv27eyyjus" path="res://sound/zombie_scream.mp3" id="3_1s81j"]
+[ext_resource type="AudioStream" uid="uid://cxeonmbiq6847" path="res://sound/attack_swing.wav" id="4_w57qp"]
+[ext_resource type="AudioStream" uid="uid://b8m7sefvvc751" path="res://sound/zombie-idle1.mp3" id="7_1li56"]
+[ext_resource type="AudioStream" uid="uid://c8wkl3eobjiad" path="res://sound/zombie_idle2.mp3" id="8_2k2gy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_00xls"]
 
@@ -103,6 +105,18 @@ volume_db = -7.442
 [node name="swing sfx" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.133, -0.333826)
 stream = ExtResource("4_w57qp")
+
+[node name="idle sfx" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82412, -0.345023)
+stream = ExtResource("7_1li56")
+emission_angle_enabled = true
+emission_angle_degrees = 20.0
+
+[node name="idle sfx2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82412, -0.345023)
+stream = ExtResource("8_2k2gy")
+emission_angle_enabled = true
+emission_angle_degrees = 20.0
 
 [node name="bone axis" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.633, 0)
