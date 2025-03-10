@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cig716s7ubfa3"
+path.s3tc="res://.godot/imported/zombie_wip_flesh.jpg-825f8039a2ffe60d888dfba95d25970d.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "9bcdab6599c10feeb9d9f16434c0c33a"
+}
+
+[deps]
+
+source_file="res://textures/zombie_wip_flesh.jpg"
+dest_files=["res://.godot/imported/zombie_wip_flesh.jpg-825f8039a2ffe60d888dfba95d25970d.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
