@@ -13,10 +13,17 @@ func _on_new_game_pressed() -> void:
 		top_level = true
 	
 	print("Mouse click detected on UI")
+	print(m)
 	if m != null:
-		m.queue_free()
-		m = null
+		delete_map()
+	add_map()
+
+func add_map():
 	m = map.instantiate()
 	game.add_child(m)
 	print(m)
 	game.new_game_pressed = true
+
+func delete_map():
+	m.queue_free()
+	m = null

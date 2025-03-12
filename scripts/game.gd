@@ -7,10 +7,10 @@ var paused = false
 enum GameState {
 	Menu,
 	Game,
-	Dead
 }
 
 var state = GameState.Menu
+var player = null
 
 @onready var menu = $"main menu"
 @onready var menu_ui = $"main menu/Control"
@@ -18,11 +18,26 @@ var state = GameState.Menu
 @onready var world_env = $WorldEnvironment
 
 func state_machiene():
-	if new_game_pressed:
+	
+	var alive = false
+	if find_player():
+		if find_player().health <= 0:
+			alive = false
+			print("player health: " + str(find_player().health))
+		else:
+			alive = true
+	
+	if new_game_pressed or alive:
 		state = GameState.Game
-		pause_menu_logic()
-		world_env.environment = load("res://town_otd.tres")
-		new_game_pressed = false
+		if new_game_pressed:
+			pause_menu_logic()
+			world_env.environment = load("res://town_otd.tres")
+			new_game_pressed = false
+	else:
+		state = GameState.Menu
+		world_env.environment = load("res://main_menu.tres")
+		if pause.m != null:
+			pause.delete_map()
 
 func _process(delta: float) -> void:
 	state_machiene()
@@ -33,6 +48,10 @@ func _process(delta: float) -> void:
 	if state == GameState.Game:
 		menu.hide()
 		menu_ui.hide()
+	else:
+		menu.show()
+		menu_ui.show()
+	print("state = " + str(state))
 
 func pause_menu_logic():
 	print(find_player())
