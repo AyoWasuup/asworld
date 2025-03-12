@@ -218,6 +218,9 @@ func _process(delta):
 	phase_bar.value = phase_eng
 	money_txt.text = str(money) + "\\|"
 
+func _ready() -> void:
+	$ui/hurt_frame.hide()
+
 func got_hit_func():
 	$ui/hurt_anim.play("hurt")
 	$ui/hurt_sound.play()
