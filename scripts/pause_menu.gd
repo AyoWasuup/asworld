@@ -18,6 +18,9 @@ func _on_new_game_pressed() -> void:
 		delete_map()
 	add_map()
 
+func _on_quit_pressed() -> void:
+	get_tree().quit()
+
 func add_map():
 	m = map.instantiate()
 	game.add_child(m)

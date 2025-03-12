@@ -42,3 +42,4 @@ text = "Exit to desktop
 "
 
 [connection signal="pressed" from="VSplitContainer/New game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VSplitContainer/quit" to="." method="_on_quit_pressed"]
