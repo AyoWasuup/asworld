@@ -5,8 +5,64 @@ class_name Pause
 @onready var map = preload("res://crt_test.tscn")
 @export var m: Node
 
+@onready var main_vbox = $VBoxContainer
+@onready var main_sprite = $Sprite2D
+@onready var options_vbox = $options
+@onready var options_bg = $"options background"
+@onready var howtoplay = $"how to play"
+
+var path = "res://scripts/save_file.json"
+
+enum ShowMode {
+	Main,
+	Options,
+	HowToPlay
+}
+
+@export var showstate = ShowMode.Main
+
 func _ready() -> void:
+	var json = JSON.new()
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	var file = FileAccess.open(path, FileAccess.READ)
+	var text = file.get_as_text()
+	var result = json.parse(text)
+	if result == OK:
+		GlobalVar.settings = json.get_data()
+	else:
+		print("Failed to parse JSON:", json.get_error_message())
+
+
+func _process(delta: float) -> void:
+	match showstate:
+		ShowMode.Main:
+			main_vbox.show()
+			main_sprite.show()
+			options_bg.hide()
+			options_vbox.hide()
+			howtoplay.hide()
+		ShowMode.Options:
+			main_vbox.hide()
+			main_sprite.hide()
+			options_bg.show()
+			options_vbox.show()
+			howtoplay.hide()
+			
+			GlobalVar.settings.mouse_sens = $"options/Mouse Sens".value
+			var file = FileAccess.open(path, FileAccess.WRITE)
+			file.store_line(JSON.stringify(GlobalVar.settings))
+			
+			if Input.is_action_pressed("pause"):
+				showstate = ShowMode.Main
+		ShowMode.HowToPlay:
+			main_vbox.hide()
+			main_sprite.hide()
+			options_bg.hide()
+			options_vbox.hide()
+			howtoplay.show()
+			
+			if Input.is_action_pressed("pause"):
+				showstate = ShowMode.Main
 
 func _on_new_game_pressed() -> void:
 	if not top_level:
@@ -30,3 +86,10 @@ func add_map():
 func delete_map():
 	m.queue_free()
 	m = null
+
+func _on_options_pressed() -> void:
+	showstate = ShowMode.Options
+
+
+func _on_controls_pressed() -> void:
+	showstate = ShowMode.HowToPlay

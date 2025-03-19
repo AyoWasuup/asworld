@@ -42,7 +42,7 @@ func state_machiene():
 func _process(delta: float) -> void:
 	state_machiene()
 	
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") and pause.showstate == pause.ShowMode.Main:
 		pause_menu_logic()
 	
 	if state == GameState.Game:

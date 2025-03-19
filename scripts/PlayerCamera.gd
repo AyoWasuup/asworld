@@ -10,8 +10,8 @@ var pitch_sensitivity = .002
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() != 0:
-		yaw += -event.relative.x * yaw_sensitivity
-		pitch += -event.relative.y * pitch_sensitivity
+		yaw += -event.relative.x * yaw_sensitivity * GlobalVar.settings.mouse_sens
+		pitch += -event.relative.y * pitch_sensitivity * GlobalVar.settings.mouse_sens
 
 func _process(delta):
 	camera_target.rotation.y = lerpf(camera_target.rotation.y, yaw, delta*10)
