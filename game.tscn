@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c7ntxhv2u04cy"]
+[gd_scene load_steps=18 format=3 uid="uid://c7ntxhv2u04cy"]
 
 [ext_resource type="PackedScene" uid="uid://kqfku58tcq54" path="res://pause.tscn" id="1_2nn8g"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_jn1wq"]
@@ -55,6 +55,9 @@ Label/colors/font_shadow_color = Color(0.404785, 0.0114962, 4.81308e-08, 1)
 
 [sub_resource type="Theme" id="Theme_wt4gc"]
 RichTextLabel/font_sizes/normal_font_size = 64
+
+[sub_resource type="Theme" id="Theme_l3h75"]
+RichTextLabel/font_sizes/normal_font_size = 32
 
 [node name="Game" type="Node"]
 script = ExtResource("1_jn1wq")
@@ -154,6 +157,7 @@ light_energy = 0.125
 light_indirect_energy = 0.0
 
 [node name="Control" type="Control" parent="main menu"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -192,5 +196,90 @@ offset_top = 252.0
 offset_right = 382.0
 offset_bottom = 275.0
 text = "pre-alpha 0.1"
+
+[node name="Death" type="Control" parent="main menu"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UI" type="Control" parent="main menu/Death"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 640.0
+offset_right = 40.0
+offset_bottom = 680.0
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="main menu/Death"]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 222.0
+offset_right = 845.0
+offset_bottom = 317.0
+theme = SubResource("Theme_wt4gc")
+text = "YOU DIED"
+
+[node name="lasted_until" type="RichTextLabel" parent="main menu/Death"]
+layout_mode = 0
+offset_left = 655.0
+offset_top = 355.0
+offset_right = 1004.0
+offset_bottom = 414.0
+theme = SubResource("Theme_l3h75")
+text = "10"
+
+[node name="Label" type="Label" parent="main menu/Death"]
+layout_mode = 0
+offset_left = 499.0
+offset_top = 366.0
+offset_right = 646.0
+offset_bottom = 389.0
+text = "lasted until round: "
+
+[node name="highest" type="RichTextLabel" parent="main menu/Death"]
+layout_mode = 0
+offset_left = 655.0
+offset_top = 395.0
+offset_right = 1004.0
+offset_bottom = 454.0
+theme = SubResource("Theme_l3h75")
+text = "10"
+
+[node name="Label3" type="Label" parent="main menu/Death"]
+layout_mode = 0
+offset_left = 499.0
+offset_top = 407.0
+offset_right = 646.0
+offset_bottom = 430.0
+text = "      highest round: "
+
+[node name="zombies_knocked" type="RichTextLabel" parent="main menu/Death"]
+layout_mode = 0
+offset_left = 655.0
+offset_top = 435.0
+offset_right = 1004.0
+offset_bottom = 494.0
+theme = SubResource("Theme_l3h75")
+text = "10"
+
+[node name="Label4" type="Label" parent="main menu/Death"]
+layout_mode = 0
+offset_left = 499.0
+offset_top = 447.0
+offset_right = 646.0
+offset_bottom = 470.0
+text = "zombies knocked: "
+
+[node name="Label2" type="Label" parent="main menu/Death"]
+layout_mode = 1
+offset_left = 715.0
+offset_top = 294.0
+offset_right = 789.0
+offset_bottom = 317.0
+theme = SubResource("Theme_gw68p")
+text = "press ESC"
 
 [editable path="main menu/player_wip"]

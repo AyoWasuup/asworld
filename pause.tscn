@@ -12,6 +12,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s7i3d")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1277.0
+offset_bottom = 719.0
+color = Color(0, 0, 0, 0.137255)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(643, 245)
 texture = ExtResource("2_o7cl6")
@@ -208,7 +214,13 @@ max_value = 5.0
 step = 0.1
 value = 1.0
 
+[node name="reset" type="Button" parent="options"]
+layout_mode = 2
+text = "reset to default"
+
 [connection signal="pressed" from="VBoxContainer/New game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="toggled" from="options/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="options/reset" to="." method="_on_reset_pressed"]

@@ -5,3 +5,5 @@ var settings = {
 	mouse_sens = 1.5,
 	volume = 75
 }
+
+var zombies_knocked = 0

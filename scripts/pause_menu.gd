@@ -93,3 +93,14 @@ func _on_options_pressed() -> void:
 
 func _on_controls_pressed() -> void:
 	showstate = ShowMode.HowToPlay
+
+
+func _on_reset_pressed() -> void:
+	$"options/Mouse Sens".value = 1.5
+
+
+func _on_fullscreen_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

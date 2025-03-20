@@ -43,6 +43,7 @@ var rng = RandomNumberGenerator.new()
 var is_map_ready = false
 var already_hit = false
 var already_played = false
+var dead = false
 
 var res_time_up = true
 
@@ -80,6 +81,7 @@ func _physics_process(delta: float) -> void:
 	match state:
 		States.CHASING:
 			anim.play("zombie run", -1, 1.2)
+			dead = false
 			res_time_up = false
 			var direction = Vector3.ZERO
 			if player.global_position == null:
@@ -102,6 +104,9 @@ func _physics_process(delta: float) -> void:
 			
 		States.DEAD:
 			anim.stop()
+			if !dead:
+				GlobalVar.zombies_knocked += 1
+				dead = true
 			if asleep_time.is_stopped():
 				asleep_time.start()
 			asleep_col.disabled = false
@@ -121,6 +126,7 @@ func _physics_process(delta: float) -> void:
 			if spawn_counter != 0:
 				$scream.play()
 		States.ATTACKING:
+			dead = false
 			anim.play("zombie punch", -1, 1.4)
 			res_time_up = false
 			if attack_time.is_stopped():

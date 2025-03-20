@@ -7,13 +7,20 @@ var paused = false
 enum GameState {
 	Menu,
 	Game,
+	Dead,
 }
 
 var state = GameState.Menu
 var player = null
 
+var lasted_until = 0
+var highest = 0
+var zombies_knocked = 0
+
 @onready var menu = $"main menu"
+@onready var menu_player_model = $"main menu/player_wip"
 @onready var menu_ui = $"main menu/Control"
+@onready var dead_ui = $"main menu/Death"
 @onready var pause = $CanvasLayer/Pause
 @onready var world_env = $WorldEnvironment
 
@@ -33,10 +40,15 @@ func state_machiene():
 			pause_menu_logic()
 			world_env.environment = load("res://town_otd.tres")
 			new_game_pressed = false
-	else:
-		state = GameState.Menu
+	elif state != GameState.Menu:
+		state = GameState.Dead
 		world_env.environment = load("res://main_menu.tres")
 		if pause.m != null:
+			lasted_until = pause.m.round
+			if lasted_until > get_highest():
+				highest_updated()
+			zombies_knocked = GlobalVar.zombies_knocked
+			GlobalVar.zombies_knocked = 0
 			pause.delete_map()
 
 func _process(delta: float) -> void:
@@ -45,12 +57,25 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and pause.showstate == pause.ShowMode.Main:
 		pause_menu_logic()
 	
-	if state == GameState.Game:
-		menu.hide()
-		menu_ui.hide()
-	else:
-		menu.show()
-		menu_ui.show()
+	match state:
+		GameState.Game:
+			menu.hide()
+			menu_player_model.hide()
+			menu_ui.hide()
+			dead_ui.hide()
+		GameState.Menu:
+			menu.show()
+			menu_player_model.show()
+			menu_ui.show()
+			dead_ui.hide()
+		GameState.Dead:
+			menu.show()
+			menu_player_model.hide()
+			menu_ui.hide()
+			dead_ui.show()
+			$"main menu/Death/lasted_until".text = str(lasted_until)
+			$"main menu/Death/highest".text = str(get_highest())
+			$"main menu/Death/zombies_knocked".text = str(zombies_knocked)
 	print("state = " + str(state))
 
 func pause_menu_logic():
@@ -102,3 +127,15 @@ func get_all_children(in_node,arr:=[]):
 	for child in in_node.get_children():
 		arr = get_all_children(child,arr)
 	return arr
+
+func highest_updated():
+	highest = lasted_until
+	var file = FileAccess.open("res://scripts/highest.txt", FileAccess.WRITE)
+	file.store_string(str(highest))
+	file.close()
+
+func get_highest() -> int:
+	var file = FileAccess.open("res://scripts/highest.txt", FileAccess.READ)
+	var content = file.get_as_text()
+	file.close()
+	return content as int
