@@ -24,6 +24,8 @@ var zombies_knocked = 0
 @onready var pause = $CanvasLayer/Pause
 @onready var world_env = $WorldEnvironment
 
+const SAVE_PATH = "user://highscore_asworld-prealpha-0.1.cfg"
+
 func state_machiene():
 	
 	var alive = false
@@ -50,6 +52,9 @@ func state_machiene():
 			zombies_knocked = GlobalVar.zombies_knocked
 			GlobalVar.zombies_knocked = 0
 			pause.delete_map()
+
+func _ready() -> void:
+	highest = get_highest()
 
 func _process(delta: float) -> void:
 	state_machiene()
@@ -130,12 +135,17 @@ func get_all_children(in_node,arr:=[]):
 
 func highest_updated():
 	highest = lasted_until
-	var file = FileAccess.open("res://scripts/highest.txt", FileAccess.WRITE)
-	file.store_string(str(highest))
-	file.close()
+	var config = ConfigFile.new()
+	config.set_value("game_data", "highest_score", highest)
+	config.save(SAVE_PATH)
+	print("Score saved:", highest)
 
 func get_highest() -> int:
-	var file = FileAccess.open("res://scripts/highest.txt", FileAccess.READ)
-	var content = file.get_as_text()
-	file.close()
-	return content as int
+	var config = ConfigFile.new()
+	var a = 0
+	if config.load(SAVE_PATH) == OK:
+		a = config.get_value("game_data", "highest_score", 0)
+		print("Score loaded:", a)
+	else:
+		print("No save file found, starting fresh.")
+	return a

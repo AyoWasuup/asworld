@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bushddi77scwr"
+path="res://.godot/imported/Voice 004.mp3-dbb70f431245a368287a64b596c417e3.mp3str"
+
+[deps]
+
+source_file="res://Voice 004.mp3"
+dest_files=["res://.godot/imported/Voice 004.mp3-dbb70f431245a368287a64b596c417e3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

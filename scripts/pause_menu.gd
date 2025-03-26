@@ -24,13 +24,27 @@ enum ShowMode {
 func _ready() -> void:
 	var json = JSON.new()
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	var file = FileAccess.open(path, FileAccess.READ)
-	var text = file.get_as_text()
-	var result = json.parse(text)
-	if result == OK:
-		GlobalVar.settings = json.get_data()
+	if not FileAccess.file_exists(path):
+		print("Save file not found. Creating a new one...")
+		var file = FileAccess.open(path, FileAccess.WRITE)
+		if file:
+			GlobalVar.settings = { "mouse_sens": 1.5 }  # Default settings
+			file.store_string(JSON.stringify(GlobalVar.settings))
+			file.close()
+		else:
+			print("Error: Could not create save file.")
 	else:
-		print("Failed to parse JSON:", json.get_error_message())
+		var file = FileAccess.open(path, FileAccess.READ)
+		if file:
+			var text = file.get_as_text()
+			var result = json.parse(text)
+			if result == OK:
+				GlobalVar.settings = json.get_data()
+			else:
+				print("Failed to parse JSON:", json.get_error_message())
+		else:
+			print("Error: Could not open save file for reading.")
+
 
 
 func _process(delta: float) -> void:
