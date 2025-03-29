@@ -40,6 +40,8 @@ func update_round():
 			print("respawning")
 			node.pre_spawn = false
 			print(node.state)
+		if node is Giant:
+			node.pre_spawn = false
 
 func _on_round_timeout() -> void:
 	round += 1

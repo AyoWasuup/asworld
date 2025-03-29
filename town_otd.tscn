@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxgffpsd4ytdb"]
+[gd_scene load_steps=13 format=3 uid="uid://dxgffpsd4ytdb"]
 
 [ext_resource type="Environment" uid="uid://cdniq5w5kmqtp" path="res://town_otd.tres" id="1_7oanm"]
 [ext_resource type="PackedScene" uid="uid://pg4jt0xt31t6" path="res://player.tscn" id="1_r1dxb"]
 [ext_resource type="PackedScene" uid="uid://dpjynt7ffgco2" path="res://models/island.tscn" id="3_7qnau"]
 [ext_resource type="PackedScene" uid="uid://cff3nui7fp5ut" path="res://zombie.tscn" id="3_rshg6"]
+[ext_resource type="PackedScene" uid="uid://cwkwycuw534ls" path="res://giant.tscn" id="3_thtng"]
 [ext_resource type="Texture2D" uid="uid://dpsmv11kdvigf" path="res://textures/house_WoodFloor043_1K-JPG_Color.jpg" id="4_68hot"]
 [ext_resource type="PackedScene" uid="uid://bj228lbaajet" path="res://buy_shells.tscn" id="5_mdny4"]
 [ext_resource type="PackedScene" uid="uid://cugumm4isryhx" path="res://bone.tscn" id="7_nr1of"]
@@ -77,6 +78,10 @@ area_node = NodePath("../..")
 [node name="zombie10" parent="NavigationRegion3D/r1_zombie" node_paths=PackedStringArray("area_node") instance=ExtResource("3_rshg6")]
 transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, -7.519, 7.273, -10.908)
 area_node = NodePath("../..")
+
+[node name="giant" parent="NavigationRegion3D/r1_zombie" node_paths=PackedStringArray("player") instance=ExtResource("3_thtng")]
+transform = Transform3D(4.2, 0, 0, 0, 4.2, 0, 0, 0, 4.2, 0, 7.40573, 0)
+player = NodePath("../../../player")
 
 [node name="r2_zombie" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.18182, 0)

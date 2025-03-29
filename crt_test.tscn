@@ -203,6 +203,7 @@ visible = false
 
 [node name="giant" parent="." instance=ExtResource("7_yjecq")]
 transform = Transform3D(4.2, 0, 0, 0, 4.2, 0, 0, 0, 4.2, -1, 2, 9)
+visible = false
 
 [node name="Cube" parent="giant" index="0"]
 visible = false
@@ -240,6 +241,7 @@ bones/31/rotation = Quaternion(0.360592, 0.0639441, -0.0235502, 0.930231)
 
 [node name="giant2" parent="." instance=ExtResource("7_yjecq")]
 transform = Transform3D(133.518, 0, 0, 0, 133.518, 0, 0, 0, 133.518, 44, -237, -172)
+visible = false
 
 [node name="Cube" parent="giant2" index="0"]
 visible = false
