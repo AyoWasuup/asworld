@@ -2,8 +2,8 @@ extends CharacterBody3D
 class_name Giant
 
 @export var player: Player
-@export var speed: float = 9
-@export var accel = 10.0
+@export var speed: float = 4.5
+@export var accel = 5.0
 @export var pre_spawn = true
 
 @onready var nav_agent = $NavigationAgent3D
@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		$CollisionShape3D.disabled = false
 	
-	$giant/AnimationPlayer.play("running")
+	$giant/AnimationPlayer.play("giant walk")
 	var direction = Vector3.ZERO
 	if player.global_position == null:
 		print("global pos is null")
