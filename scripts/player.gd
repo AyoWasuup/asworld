@@ -197,8 +197,15 @@ func _physics_process(delta):
 	
 	if interact_hand.is_colliding():
 		var coll = interact_hand.get_collider()
+		$ui/crosshair/a/interact.show()
+		var default_text = "(E) buy "
+		
 		if coll is BuyShells and money >= 50:
-			$ui/crosshair/interact.show()
+			$ui/crosshair/a/interact.text = default_text + "ammo"
+		elif coll is BuyHp and money >= 0:
+			$ui/crosshair/a/interact.text = default_text + "max health"
+		else:
+			$ui/crosshair/a/interact.hide()
 		
 		if Input.is_action_just_pressed("interact"):
 			if coll is BuyShells and money >= 50:
@@ -206,7 +213,7 @@ func _physics_process(delta):
 				money -= 50
 				coll.buy = true
 	else:
-		$ui/crosshair/interact.hide()
+		$ui/crosshair/a/interact.hide()
 	
 	
 	

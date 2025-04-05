@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxgffpsd4ytdb"]
+[gd_scene load_steps=14 format=3 uid="uid://dxgffpsd4ytdb"]
 
 [ext_resource type="Environment" uid="uid://cdniq5w5kmqtp" path="res://town_otd.tres" id="1_7oanm"]
 [ext_resource type="PackedScene" uid="uid://pg4jt0xt31t6" path="res://player.tscn" id="1_r1dxb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cwkwycuw534ls" path="res://giant.tscn" id="3_thtng"]
 [ext_resource type="Texture2D" uid="uid://dpsmv11kdvigf" path="res://textures/house_WoodFloor043_1K-JPG_Color.jpg" id="4_68hot"]
 [ext_resource type="PackedScene" uid="uid://bj228lbaajet" path="res://buy_shells.tscn" id="5_mdny4"]
+[ext_resource type="PackedScene" uid="uid://stjv0w8fa45q" path="res://buy_hp.tscn" id="6_4fs1p"]
 [ext_resource type="PackedScene" uid="uid://cugumm4isryhx" path="res://bone.tscn" id="7_nr1of"]
 [ext_resource type="PackedScene" uid="uid://1m72smjqxwui" path="res://killzone.tscn" id="8_lhuwq"]
 
@@ -301,20 +302,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.2195, 9.33038, 56.6488)
 [node name="buy shells3" parent="." instance=ExtResource("5_mdny4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.2372, 9.7164, 11.2199)
 
+[node name="buy hp" parent="." instance=ExtResource("6_4fs1p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5125, 1.07691, -17.2799)
+
 [node name="player" parent="." instance=ExtResource("1_r1dxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 14, 18)
-
-[node name="Cylinder_002" parent="player/player_wip/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.0966342, -0.0123962, -0.0115808, 0.00762978, -0.0206977, 0.110474, -0.0132191, -0.102564, -0.0208942, 0.252341, -0.0405042, -1.07257)
-
-[node name="Cube_002" parent="player/player_wip/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.086541, -0.00106443, -0.00961914, 0.00709227, -0.000968789, 0.117282, -0.000789855, -0.125325, -0.000824905, 0.221531, -0.0975948, -1.4612)
-
-[node name="Cylinder_001" parent="player/player_wip/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.0961502, -0.0129899, -0.0155333, -0.0109988, 0.0201041, -0.110221, 0.0143272, 0.102609, 0.019629, -0.266936, -0.0713268, -1.06204)
-
-[node name="Cube_003" parent="player/player_wip/Armature/Skeleton3D" index="3"]
-transform = Transform3D(-0.0862134, -0.00177103, -0.0139528, 0.0103242, -0.00316757, -0.116806, 0.000957729, -0.125281, 0.00315053, -0.237718, -0.0889982, -1.44832)
 
 [node name="bone" parent="." instance=ExtResource("7_nr1of")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8686, 0, 19.5956)
@@ -327,6 +319,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 748.118, 0)
 
 [node name="giant" parent="." instance=ExtResource("3_thtng")]
 transform = Transform3D(-195.662, 0, 48.1751, 0, 201.506, 0, -48.1751, 0, -195.662, 38.8485, -461.15, -196.861)
+visible = false
 
 [editable path="player"]
 [editable path="player/player_wip"]
