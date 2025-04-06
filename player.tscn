@@ -2054,6 +2054,7 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 0
 text = "(E) buy ammo"
+flat = true
 
 [node name="fps" type="RichTextLabel" parent="ui"]
 layout_mode = 0

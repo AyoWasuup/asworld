@@ -200,10 +200,10 @@ func _physics_process(delta):
 		$ui/crosshair/a/interact.show()
 		var default_text = "(E) buy "
 		
-		if coll is BuyShells and money >= 50:
-			$ui/crosshair/a/interact.text = default_text + "ammo"
-		elif coll is BuyHp and money >= 0:
-			$ui/crosshair/a/interact.text = default_text + "max health"
+		if coll is BuyShells:
+			$ui/crosshair/a/interact.text = default_text + "ammo" + is_broke(50)
+		elif coll is BuyHp:
+			$ui/crosshair/a/interact.text = default_text + "max health" + is_broke(75)
 		else:
 			$ui/crosshair/a/interact.hide()
 		
@@ -212,10 +212,12 @@ func _physics_process(delta):
 				hunter_l.ammo += 20
 				money -= 50
 				coll.buy = true
+			if coll is BuyHp and money >= 75 and health != 300:
+				health = 300
+				money -= 75
+				coll.buy = true
 	else:
 		$ui/crosshair/a/interact.hide()
-	
-	
 	
 	#fix_sholder_glitch()
 
@@ -261,6 +263,12 @@ func fix_sholder_glitch():
 				b.rotation_degrees = arm_bone_rot[rep]
 				print(b.rotation_degrees)
 			rep += 1
+
+func is_broke(amount) -> String:
+	if money < amount:
+		return " (you're broke)"
+	else:
+		return ""
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "to run" and starting_run:

@@ -1,14 +1,16 @@
 [gd_scene load_steps=10 format=3 uid="uid://stjv0w8fa45q"]
 
-[ext_resource type="Texture2D" uid="uid://bvaq8qfdhfftr" path="res://textures/skull-refrence.jpg" id="1_ndiib"]
+[ext_resource type="Texture2D" uid="uid://b3p0lkeybyj57" path="res://textures/gore_texture.jpg" id="1_fhyvm"]
 [ext_resource type="Script" path="res://buy_hp.gd" id="1_tx2ut"]
 [ext_resource type="AudioStream" uid="uid://dp3ewnsd0chvm" path="res://sound/cha_ching.mp3" id="3_1wgo4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6ebik"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqrsw"]
-albedo_color = Color(0.50968, 1, 0.380522, 1)
-albedo_texture = ExtResource("1_ndiib")
+albedo_texture = ExtResource("1_fhyvm")
+emission_enabled = true
+emission = Color(0.0653074, 0.0456662, 0.00190245, 1)
+emission_energy_multiplier = 3.71
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jgd6m"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -51,7 +53,6 @@ _data = {
 [node name="buy hp" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_6ebik")
 surface_material_override/0 = SubResource("StandardMaterial3D_mqrsw")
 
