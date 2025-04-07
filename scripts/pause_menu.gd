@@ -65,18 +65,12 @@ func _process(delta: float) -> void:
 			GlobalVar.settings.mouse_sens = $"options/Mouse Sens".value
 			var file = FileAccess.open(path, FileAccess.WRITE)
 			file.store_line(JSON.stringify(GlobalVar.settings))
-			
-			if Input.is_action_pressed("pause"):
-				showstate = ShowMode.Main
 		ShowMode.HowToPlay:
 			main_vbox.hide()
 			main_sprite.hide()
 			options_bg.hide()
 			options_vbox.hide()
 			howtoplay.show()
-			
-			if Input.is_action_pressed("pause"):
-				showstate = ShowMode.Main
 
 func _on_new_game_pressed() -> void:
 	if not top_level:
@@ -118,3 +112,7 @@ func _on_fullscreen_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _on_back_to_menu_pressed() -> void:
+	showstate = ShowMode.Main

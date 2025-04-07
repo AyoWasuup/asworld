@@ -58,9 +58,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	state_machiene()
+	print("pause state: " + str(pause.showstate))
 	
-	if Input.is_action_just_pressed("pause") and pause.showstate == pause.ShowMode.Main:
-		pause_menu_logic()
+	if Input.is_action_just_pressed("pause"):
+		if pause.showstate != pause.ShowMode.Main:
+			pause.showstate = pause.ShowMode.Main
+		else:
+			pause_menu_logic()
 	
 	match state:
 		GameState.Game:
