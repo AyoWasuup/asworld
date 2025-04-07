@@ -109,14 +109,17 @@ func _physics_process(delta: float) -> void:
 				dead = true
 			if asleep_time.is_stopped():
 				asleep_time.start()
-			asleep_col.disabled = false
+			
 			awake_col.disabled = true
 			velocity.x = 0
 			velocity.z = 0
 			print(asleep_time.time_left)
 			if not is_on_floor():
 				velocity.y -= gravity * delta * 10
+				asleep_col.disabled = false
 				print("falling")
+			if is_on_floor():
+				asleep_col.disabled = true
 		States.RESPAWNING:
 			asleep_col.disabled = false
 			awake_col.disabled = true

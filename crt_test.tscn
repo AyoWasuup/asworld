@@ -33,7 +33,10 @@ skeleton = NodePath("../Node3D")
 
 [node name="Node3D" parent="." instance=ExtResource("2_fq2ek")]
 
-[node name="r1_zombie" parent="Node3D/NavigationRegion3D" index="0"]
+[node name="pillar" parent="Node3D/NavigationRegion3D/island" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="r1_zombie" parent="Node3D/NavigationRegion3D" index="4"]
 visible = true
 
 [node name="zombie2" parent="Node3D/NavigationRegion3D/r1_zombie" index="0" node_paths=PackedStringArray("player")]

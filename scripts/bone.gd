@@ -27,7 +27,13 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.got_hit_func()
 		queue_free()
 	
+	if body is BoneProjct:
+		return
+	elif body is Zombie:
+		return
+	
 	if body is not BoneProjct or body is not Zombie:
+		print("bone died to: " + str(body))
 		queue_free()
 
 

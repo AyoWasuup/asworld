@@ -1819,6 +1819,7 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 radius = 3.0
 
 [node name="player" type="CharacterBody3D" node_paths=PackedStringArray("crosshair")]
+collision_mask = 3
 script = ExtResource("1_2nxtj")
 crosshair = NodePath("ui/crosshair")
 
