@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b33w7424ik0an"]
+[gd_scene load_steps=10 format=3 uid="uid://b33w7424ik0an"]
 
 [ext_resource type="Shader" path="res://scripts/crt.gdshader" id="1_p5uk6"]
 [ext_resource type="PackedScene" uid="uid://dxgffpsd4ytdb" path="res://town_otd.tscn" id="2_fq2ek"]
@@ -15,6 +15,8 @@ shader_parameter/noiseQuality = 300.0
 shader_parameter/noiseIntensity = 0.001
 shader_parameter/offsetIntensity = 0.01
 shader_parameter/colorOffsetIntensity = 0.283
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_171no"]
 
 [node name="Node" type="Node" node_paths=PackedStringArray("zombie_node_tree", "round_node", "level_node")]
 script = ExtResource("4_q5tcj")
@@ -33,11 +35,11 @@ skeleton = NodePath("../Node3D")
 
 [node name="Node3D" parent="." instance=ExtResource("2_fq2ek")]
 
+[node name="NavigationRegion3D" parent="Node3D" index="2"]
+navigation_mesh = SubResource("NavigationMesh_171no")
+
 [node name="pillar" parent="Node3D/NavigationRegion3D/island" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="r1_zombie" parent="Node3D/NavigationRegion3D" index="4"]
-visible = true
 
 [node name="zombie2" parent="Node3D/NavigationRegion3D/r1_zombie" index="0" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
@@ -182,68 +184,6 @@ player = NodePath("../../../player")
 
 [node name="zombie14" parent="Node3D/NavigationRegion3D/r12_zombie" index="2" node_paths=PackedStringArray("player")]
 player = NodePath("../../../player")
-
-[node name="Skeleton3D" parent="Node3D/player/player_wip/Armature" index="0"]
-bones/0/position = Vector3(0.00197554, -0.0477549, -1.05887)
-bones/0/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
-bones/1/rotation = Quaternion(-0.0342299, 0, 0, 0.999414)
-bones/2/rotation = Quaternion(-3.72529e-09, -2.8804e-11, 8.40995e-10, 1)
-bones/3/rotation = Quaternion(6.33299e-08, 2.8804e-11, -8.40995e-10, 1)
-bones/4/rotation = Quaternion(0.0342298, 5.4099e-18, 1.07275e-16, 0.999414)
-bones/5/rotation = Quaternion(-3.74551e-09, -2.9258e-25, -3.32814e-25, 1)
-bones/7/rotation = Quaternion(-0.559647, -0.429898, 0.568125, -0.42334)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(-0.126095, 0.00101145, -0.00795761, 0.991986)
-bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(-0.013263, -0.000579782, 0.043667, 0.998958)
-bones/10/rotation = Quaternion(0.00089396, 4.39883e-05, 0.0490768, 0.998795)
-bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(-0.101505, 0.00598054, -0.0585058, 0.993095)
-bones/12/rotation = Quaternion(1.52239e-06, -1.01363e-06, -1.37626e-06, 1)
-bones/13/rotation = Quaternion(3.04825e-06, 4.67175e-07, 3.77651e-07, 1)
-bones/15/rotation = Quaternion(0.718316, -0.0531028, -0.691076, -0.0601394)
-bones/15/scale = Vector3(0.0978321, 0.105364, 0.113028)
-bones/16/rotation = Quaternion(0.716957, 0.0434675, -0.693839, -0.0516751)
-bones/16/scale = Vector3(0.0868347, 0.125334, 0.117679)
-bones/17/rotation = Quaternion(0.557179, -0.43183, 0.570305, 0.421694)
-bones/17/scale = Vector3(1, 1, 1)
-bones/18/rotation = Quaternion(-0.125606, -4.02233e-05, 0.000317413, 0.99208)
-bones/18/scale = Vector3(1, 1, 1)
-bones/19/rotation = Quaternion(-0.013186, 0.000558025, -0.0422746, 0.999019)
-bones/19/scale = Vector3(1, 1, 1)
-bones/20/rotation = Quaternion(-0.00934896, 0.000403239, -0.0431031, 0.999027)
-bones/20/scale = Vector3(1, 1, 1)
-bones/21/rotation = Quaternion(0.061231, 0.00560742, 0.0910157, 0.993949)
-bones/22/rotation = Quaternion(9.85229e-06, -5.94766e-07, 1.89524e-07, 1)
-bones/23/rotation = Quaternion(-4.57361e-06, 1.7829e-07, -1.61584e-07, 1)
-bones/25/rotation = Quaternion(0.00822986, -0.653696, 0.0541776, 0.75477)
-bones/25/scale = Vector3(0.0978321, 0.105364, 0.113028)
-bones/26/rotation = Quaternion(-0.65184, -0.0133664, 0.755204, 0.0677701)
-bones/26/scale = Vector3(0.0868347, 0.125334, 0.117679)
-bones/27/rotation = Quaternion(0.00117875, 0.0208748, 0.998192, -0.0563494)
-bones/27/scale = Vector3(0.999995, 1, 0.999999)
-bones/28/rotation = Quaternion(-0.0661055, 4.32417e-05, -0.000695623, 0.997812)
-bones/29/rotation = Quaternion(0.513055, 0.028249, -0.0168975, 0.857724)
-bones/30/rotation = Quaternion(0.285923, -0.0649904, 0.0194408, 0.955848)
-bones/30/scale = Vector3(1, 1, 1)
-bones/32/rotation = Quaternion(-0.00113839, 0.020184, 0.998206, 0.0563526)
-bones/32/scale = Vector3(1.00002, 1, 1)
-bones/33/rotation = Quaternion(-0.0660198, -4.25495e-05, 0.000706626, 0.997818)
-bones/33/scale = Vector3(1, 1, 1)
-bones/34/rotation = Quaternion(0.513409, -0.0281761, 0.0168691, 0.857516)
-bones/35/rotation = Quaternion(0.286134, 0.0647988, -0.019398, 0.955799)
-
-[node name="Cylinder_002" parent="Node3D/player/player_wip/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.000505679, -0.104797, 0.0116915, -0.010243, 0.0107823, 0.11181, -0.0972931, -0.00167983, -0.0117106, 0.628814, -0.0718328, -1.49608)
-
-[node name="Cube_002" parent="Node3D/player/player_wip/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.0134881, -0.123684, 0.00530284, -0.0087848, 0.00369547, 0.117024, -0.0853297, -0.0199311, -0.0112095, 0.229719, -0.0825171, -1.52174)
-
-[node name="Cylinder_001" parent="Node3D/player/player_wip/Armature/Skeleton3D" index="2"]
-transform = Transform3D(-0.00643745, -0.105108, 0.00260078, 0.0207856, -0.0038498, -0.11037, 0.0953815, -0.00625492, 0.0242275, -0.619465, -0.0792939, -1.50959)
-
-[node name="Cube_003" parent="Node3D/player/player_wip/Armature/Skeleton3D" index="3"]
-transform = Transform3D(-0.0120607, 0.124013, -0.00481835, -0.0182975, -0.00876423, -0.114742, -0.0840238, -0.0158922, 0.0256785, -0.227661, -0.0797378, -1.52349)
 
 [node name="giant" parent="Node3D" index="11"]
 transform = Transform3D(-157.64, 0, 42.2396, 0, 163.201, 0, -42.2396, 0, -157.64, 36.8485, -352.1, -79.7508)

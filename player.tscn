@@ -1950,8 +1950,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425068, 0, 0)
 spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="Camera/CameraTarget/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.6621)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64043, 4.6621)
 current = true
+fov = 100.4
 
 [node name="spin" type="Node3D" parent="Camera/CameraTarget"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.150698, 0)
