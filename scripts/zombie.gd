@@ -69,11 +69,16 @@ func state_machiene():
 func _physics_process(delta: float) -> void:
 	var get_map = NavigationServer3D.map_get_iteration_id(get_world_3d().get_navigation_map())
 	if get_map == 0:
+		print("get map == 0")
 		return
 	
 	if pre_spawn:
 		asleep_col.disabled = true
 		awake_col.disabled = true
+		return
+	
+	if player.global_position == null:
+		print("global pos is null")
 		return
 	
 	state_machiene()
@@ -88,6 +93,7 @@ func _physics_process(delta: float) -> void:
 				print("global pos is null")
 				return
 			nav_agent.target_position = player.global_position
+			print("Is reachable: ", nav_agent.is_target_reachable())
 			
 			direction = nav_agent.get_next_path_position() - global_position
 			direction = direction.normalized()
@@ -158,6 +164,9 @@ func _physics_process(delta: float) -> void:
 	if hit:
 		$zombie_wip/Armature/Skeleton3D/HumanMale/blood.emitting = true
 		hit = false
+	
+	var path_pos = nav_agent.get_next_path_position()
+	print("Next path pos: ", path_pos)
 
 func is_player_in_range() -> bool:
 	if attack_detect.is_colliding():
