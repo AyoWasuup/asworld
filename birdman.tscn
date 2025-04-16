@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dw6de8ojcg43i"]
+
+[node name="birdman" type="CharacterBody3D"]

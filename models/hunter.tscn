@@ -4,24 +4,27 @@
 [ext_resource type="Script" path="res://scripts/hunter.gd" id="2_lb2o5"]
 [ext_resource type="AudioStream" uid="uid://t7x1me0pvs4b" path="res://sound/hunter-sound.mp3" id="3_8h0fx"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t7l82"]
-direction = Vector3(0, 0, -1)
-spread = 11.355
-initial_velocity_min = 3.24
-initial_velocity_max = 3.24
-gravity = Vector3(0, -1, 0)
-linear_accel_min = 24.72
-linear_accel_max = 24.72
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8fh2y"]
+angle_min = -15.1
+angle_max = 45.5
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 1.0
+angular_velocity_min = 30.64
+angular_velocity_max = 30.64
+gravity = Vector3(0, 0, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55ua2"]
-albedo_color = Color(0.981382, 0.40652, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2aag7"]
+albedo_color = Color(1, 0.654837, 0.375794, 1)
 emission_enabled = true
-emission = Color(0.84833, 0.378498, 2.9071e-05, 1)
-emission_energy_multiplier = 2.47
+emission = Color(0.919792, 0.499802, 0.136023, 1)
+emission_energy_multiplier = 1.7
 
-[sub_resource type="PrismMesh" id="PrismMesh_ko16l"]
-material = SubResource("StandardMaterial3D_55ua2")
-size = Vector3(0.1, 0.1, 0.5)
+[sub_resource type="CylinderMesh" id="CylinderMesh_2xbta"]
+material = SubResource("StandardMaterial3D_2aag7")
+top_radius = 0.0
+bottom_radius = 0.1
+height = 0.5
+radial_segments = 4
 
 [sub_resource type="Animation" id="Animation_ussdp"]
 length = 0.001
@@ -132,13 +135,25 @@ transform = Transform3D(0.0451931, 0, 0, 0, 0.0451931, 0, 0, 0, 0.0451931, 0, 0.
 transform = Transform3D(0.0340672, 0, 0, 0, -2.0724e-08, 0.0242362, 0, -0.474109, -1.0594e-09, 0, 0.195406, -0.411686)
 
 [node name="shoot" type="GPUParticles3D" parent="Cylinder" index="0"]
-transform = Transform3D(29.3537, 0, 0, -1.42109e-14, -9.21969e-08, -2.10922, 0, 41.2606, -1.80356e-06, 2.33396e-06, 1.05001, 0.0515003)
+transform = Transform3D(43.9638, -8.3715e-07, -2.03288e-19, 6.63835e-06, 5.5442, 3.2685e-11, 4.33681e-18, 3.18323e-12, -47.919, 3.38308e-06, 1.91231, 0.511212)
 emitting = false
-amount = 18
-lifetime = 0.1
+amount = 10
+lifetime = 0.15
 one_shot = true
-process_material = SubResource("ParticleProcessMaterial_t7l82")
-draw_pass_1 = SubResource("PrismMesh_ko16l")
+fixed_fps = 8
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_8fh2y")
+draw_pass_1 = SubResource("CylinderMesh_2xbta")
+
+[node name="light" type="SpotLight3D" parent="Cylinder" index="1"]
+transform = Transform3D(1, -1.22865e-07, 5.3706e-15, 0, -4.37114e-08, -1, 1.22865e-07, 1, -4.37114e-08, 1.26604e-06, 1.04059, 9.53674e-07)
+light_color = Color(0.855048, 0.460844, 0.316891, 1)
+light_energy = 4.84
+light_indirect_energy = 1.8
+light_volumetric_fog_energy = 5.16
+shadow_enabled = true
+spot_range = 0.968356
+spot_angle = 18.7954
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="5"]
 libraries = {

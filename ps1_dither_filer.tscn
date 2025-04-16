@@ -5,7 +5,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ejmva"]
 render_priority = 0
 shader = ExtResource("1_8mafi")
-shader_parameter/color_depth = 5
+shader_parameter/color_depth = 4
 shader_parameter/dithering = true
 shader_parameter/resolution_scale = 2
 

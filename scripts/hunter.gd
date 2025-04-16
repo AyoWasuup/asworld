@@ -14,6 +14,7 @@ var anim_playing = false
 @onready var anim = $AnimationPlayer2
 @onready var sfx = $shoot_sfx
 @onready var shoot_fx = $Cylinder/shoot
+@onready var light = $Cylinder/light
 
 func _ready():
 	if is_left and right_hunter == null:
@@ -25,15 +26,19 @@ func _physics_process(delta: float) -> void:
 			-1:
 				anim_playing = true
 				shoot_fx.emitting = true
+				light.show()
 				anim.play("aaaa")
 				sfx.play()
 				ammo -= 1
 			1:
 				right_hunter.anim_playing = true
 				right_hunter.shoot_fx.emitting = true
+				right_hunter.light.show()
 				right_hunter.anim.play("aaaa")
 				right_hunter.sfx.play()
 				ammo -= 1
+	else:
+		light.hide()
 
 func _process(delta: float) -> void:
 	if is_left:

@@ -9,10 +9,11 @@
 [ext_resource type="AudioStream" uid="uid://b8m7sefvvc751" path="res://sound/zombie-idle1.mp3" id="7_1li56"]
 [ext_resource type="AudioStream" uid="uid://c8wkl3eobjiad" path="res://sound/zombie_idle2.mp3" id="8_2k2gy"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_00xls"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l5jdr"]
+height = 2.21185
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3bcfu"]
-height = 1.11774
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6il0m"]
+height = 1.19742
 
 [node name="zombie" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_x0md3")
@@ -56,12 +57,12 @@ bones/35/rotation = Quaternion(0.288799, 0.0657037, -0.0192967, 0.954938)
 transform = Transform3D(0.662215, 0, -1.81188e-13, 1.81188e-13, 3.94711e-08, 0.662215, 1.07997e-20, -0.662215, 3.94711e-08, 0, 5.97451e-08, -1.00236)
 
 [node name="awake_collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15448, 0)
-shape = SubResource("CapsuleShape3D_00xls")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11453, -0.034668)
+shape = SubResource("CapsuleShape3D_l5jdr")
 
 [node name="asleep_collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69705, 0)
-shape = SubResource("CapsuleShape3D_3bcfu")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69705, -0.0369568)
+shape = SubResource("CapsuleShape3D_6il0m")
 disabled = true
 
 [node name="respawn_system" type="Node3D" parent="."]
