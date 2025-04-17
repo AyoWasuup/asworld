@@ -4,7 +4,7 @@ extends Node
 @export var zombie_node_tree: Array[Node3D]
 @export var round_node: Timer
 @export var level_node: Node3D
-var round = 1
+@export var round = 1
 var start_done = false
 
 var player_ui_node: RoundLabel

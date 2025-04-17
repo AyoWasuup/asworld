@@ -183,7 +183,7 @@ player = NodePath("../../../player")
 area_node = NodePath("../..")
 
 [node name="zombie8" parent="NavigationRegion3D/r2_zombie" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("3_rshg6")]
-transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, -6.812, 7.273, 20.081)
+transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, -15.3482, 7.273, 11.9759)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
 
@@ -193,7 +193,7 @@ player = NodePath("../../../player")
 area_node = NodePath("../..")
 
 [node name="zombie10" parent="NavigationRegion3D/r2_zombie" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("3_rshg6")]
-transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 11.37, 7.273, 16.445)
+transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 11.5424, 7.273, -1.14468)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
 
@@ -208,7 +208,7 @@ player = NodePath("../../../player")
 area_node = NodePath("../..")
 
 [node name="zombie13" parent="NavigationRegion3D/r2_zombie" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("3_rshg6")]
-transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 4.097, 7.273, -17.192)
+transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 7.45974, 7.273, -11.5012)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
 
@@ -227,7 +227,7 @@ player = NodePath("../../../player")
 area_node = NodePath("../..")
 
 [node name="zombie8" parent="NavigationRegion3D/r3_zombie" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("3_rshg6")]
-transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, -6.812, 7.273, 20.081)
+transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 10.1164, 7.273, -5.42248)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
 
@@ -237,22 +237,22 @@ player = NodePath("../../../player")
 area_node = NodePath("../..")
 
 [node name="zombie10" parent="NavigationRegion3D/r3_zombie" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("3_rshg6")]
-transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 11.37, 7.273, 16.445)
+transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 4.09727, 7.273, 11.8995)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
 
 [node name="zombie11" parent="NavigationRegion3D/r3_zombie" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("3_rshg6")]
-transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 5.916, 7.273, 20.99)
+transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 6.95068, 7.273, 4.77989)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
 
 [node name="zombie12" parent="NavigationRegion3D/r3_zombie" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("3_rshg6")]
-transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, -2.266, 7.273, -16.282)
+transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, -8.993, 7.273, -14.0643)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
 
 [node name="zombie13" parent="NavigationRegion3D/r3_zombie" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("3_rshg6")]
-transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 4.097, 7.273, -17.192)
+transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 3.94915, 7.273, -13.2741)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
 
@@ -271,7 +271,7 @@ player = NodePath("../../../player")
 area_node = NodePath("../..")
 
 [node name="zombie8" parent="NavigationRegion3D/r4_zombie" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("3_rshg6")]
-transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, -6.812, 7.273, 20.081)
+transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, -16.1242, 7.273, 2.92243)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
 
@@ -281,22 +281,22 @@ player = NodePath("../../../player")
 area_node = NodePath("../..")
 
 [node name="zombie10" parent="NavigationRegion3D/r4_zombie" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("3_rshg6")]
-transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 11.37, 7.273, 16.445)
+transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 7.31748, 7.273, 10.9267)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
 
 [node name="zombie11" parent="NavigationRegion3D/r4_zombie" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("3_rshg6")]
-transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 5.916, 7.273, 20.99)
+transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 12.0379, 7.273, -1.51445)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
 
 [node name="zombie12" parent="NavigationRegion3D/r4_zombie" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("3_rshg6")]
-transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, -2.266, 7.273, -16.282)
+transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, -10.1124, 7.273, -13.1779)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
 
 [node name="zombie13" parent="NavigationRegion3D/r4_zombie" node_paths=PackedStringArray("player", "area_node") instance=ExtResource("3_rshg6")]
-transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 4.097, 7.273, -17.192)
+transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 6.42505, 7.273, -10.4665)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
 

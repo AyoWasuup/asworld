@@ -1,17 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsbbpcdym3uof"]
+[gd_scene load_steps=13 format=3 uid="uid://bsbbpcdym3uof"]
 
 [ext_resource type="PackedScene" uid="uid://d1nbyl053bgp" path="res://models/hunter.glb" id="1_7g3ov"]
 [ext_resource type="Script" path="res://scripts/hunter.gd" id="2_lb2o5"]
 [ext_resource type="AudioStream" uid="uid://t7x1me0pvs4b" path="res://sound/hunter-sound.mp3" id="3_8h0fx"]
 
+[sub_resource type="Gradient" id="Gradient_vom2b"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.224852, 0.502959)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7n08t"]
+gradient = SubResource("Gradient_vom2b")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8fh2y"]
-angle_min = -15.1
-angle_max = 45.5
+angle_min = -290.8
+angle_max = 288.0
 direction = Vector3(0, 1, 0)
+spread = 90.0
 initial_velocity_max = 1.0
 angular_velocity_min = 30.64
 angular_velocity_max = 30.64
+orbit_velocity_min = 2.0
+orbit_velocity_max = 2.0
 gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_7n08t")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2aag7"]
 albedo_color = Color(1, 0.654837, 0.375794, 1)
@@ -137,8 +149,7 @@ transform = Transform3D(0.0340672, 0, 0, 0, -2.0724e-08, 0.0242362, 0, -0.474109
 [node name="shoot" type="GPUParticles3D" parent="Cylinder" index="0"]
 transform = Transform3D(43.9638, -8.3715e-07, -2.03288e-19, 6.63835e-06, 5.5442, 3.2685e-11, 4.33681e-18, 3.18323e-12, -47.919, 3.38308e-06, 1.91231, 0.511212)
 emitting = false
-amount = 10
-lifetime = 0.15
+lifetime = 0.13
 one_shot = true
 fixed_fps = 8
 local_coords = true
