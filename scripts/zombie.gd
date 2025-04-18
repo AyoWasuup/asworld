@@ -106,7 +106,13 @@ func _physics_process(delta: float) -> void:
 				$"idle sfx2".play()
 			
 			velocity = velocity.lerp(direction * speed, accel * delta)
-			look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
+			var look_atv = Vector3(
+				player.global_position.x,
+				global_position.y,
+				player.global_position.z)
+			
+			if look_atv != global_position and is_on_floor():
+				look_at(look_atv, Vector3.UP)
 			
 		States.DEAD:
 			anim.stop()
@@ -235,3 +241,13 @@ func _on_attack_sfx_time_timeout() -> void:
 func _on_respawn_timer_timeout() -> void:
 	spawn_counter += 1
 	res_time_up = true
+
+
+func _on_foot_body_entered(body: Node3D) -> void:
+	if body is Zombie or body is Pillar:
+		print("body == zombie")
+		return
+	
+	if body is StaticBody3D or CSGBox3D:
+		velocity.y += 10
+	print("body: " + str(body))

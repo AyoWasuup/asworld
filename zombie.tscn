@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cff3nui7fp5ut"]
+[gd_scene load_steps=12 format=3 uid="uid://cff3nui7fp5ut"]
 
 [ext_resource type="Script" path="res://scripts/zombie.gd" id="1_x0md3"]
 [ext_resource type="PackedScene" uid="uid://crmls41iu0rpa" path="res://bloodvfx.tscn" id="2_5oidk"]
@@ -14,6 +14,9 @@ height = 2.21185
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6il0m"]
 height = 1.19742
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272lk"]
+size = Vector3(1, 0.866943, 0.219849)
 
 [node name="zombie" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_x0md3")
@@ -75,7 +78,17 @@ target_position = Vector3(0, -2, 0)
 wait_time = 15.0
 one_shot = true
 
+[node name="foot" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496883, -1.06345)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="foot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.166528, 0.390076)
+shape = SubResource("BoxShape3D_272lk")
+
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+max_neighbors = 1
+use_3d_avoidance = true
 
 [node name="attack range" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26984, 0)
@@ -126,6 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.633, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.54823)
 
 [connection signal="timeout" from="respawn_system/respawn timer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="body_entered" from="foot" to="." method="_on_foot_body_entered"]
 [connection signal="timeout" from="attack time" to="." method="_on_attack_time_timeout"]
 [connection signal="timeout" from="attack hit time" to="." method="_on_attack_hit_time_timeout"]
 [connection signal="timeout" from="attack sfx time" to="." method="_on_attack_sfx_time_timeout"]

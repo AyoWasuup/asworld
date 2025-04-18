@@ -14,7 +14,8 @@ config/name="asworld"
 config/version="pre-alpha 0.2"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/image="res://bootscreen.png"
+boot_splash/image="res://models/pillar_pillartexture.png"
+boot_splash/fullsize=false
 config/icon="res://mygamewantsu.png"
 
 [autoload]
