@@ -24,7 +24,7 @@ var zombies_knocked = 0
 @onready var pause = $CanvasLayer/Pause
 @onready var world_env = $WorldEnvironment
 
-const SAVE_PATH = "user://highscore_asworld-prealpha-0.2dev.cfg"
+const SAVE_PATH = "user://highscore_asworld-prealpha-0.1dev.cfg"
 
 func state_machiene():
 	

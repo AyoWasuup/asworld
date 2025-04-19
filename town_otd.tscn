@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxgffpsd4ytdb"]
+[gd_scene load_steps=17 format=3 uid="uid://dxgffpsd4ytdb"]
 
 [ext_resource type="Environment" uid="uid://cdniq5w5kmqtp" path="res://town_otd.tres" id="1_7oanm"]
 [ext_resource type="PackedScene" uid="uid://pg4jt0xt31t6" path="res://player.tscn" id="1_r1dxb"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cwkwycuw534ls" path="res://giant.tscn" id="3_thtng"]
 [ext_resource type="Texture2D" uid="uid://dpsmv11kdvigf" path="res://textures/house_WoodFloor043_1K-JPG_Color.jpg" id="4_68hot"]
 [ext_resource type="PackedScene" uid="uid://bj228lbaajet" path="res://buy_shells.tscn" id="5_mdny4"]
+[ext_resource type="PackedScene" uid="uid://dw6de8ojcg43i" path="res://birdman.tscn" id="6_1v3hr"]
 [ext_resource type="PackedScene" uid="uid://stjv0w8fa45q" path="res://buy_hp.tscn" id="6_4fs1p"]
 [ext_resource type="PackedScene" uid="uid://cugumm4isryhx" path="res://bone.tscn" id="7_nr1of"]
 [ext_resource type="PackedScene" uid="uid://1m72smjqxwui" path="res://killzone.tscn" id="8_lhuwq"]
@@ -174,6 +175,10 @@ area_node = NodePath("../..")
 transform = Transform3D(0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, -7.519, 7.273, -10.908)
 player = NodePath("../../../player")
 area_node = NodePath("../..")
+
+[node name="birdman" parent="NavigationRegion3D/r1_zombie" node_paths=PackedStringArray("player") instance=ExtResource("6_1v3hr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4138, 9.41687, 5.5398)
+player = NodePath("../../../player")
 
 [node name="r2_zombie" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51948, 0)

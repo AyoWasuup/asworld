@@ -9,9 +9,15 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [node name="birdman" type="CharacterBody3D"]
 script = ExtResource("1_fevmp")
+throw_rate = [1, 1, 1, 1]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.64701, 0, 0, 0, 1.64701, 0, 0, 0, 1.64701, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_1im8p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.64701, 0, 0, 0, 1.64701, 0, 0, 0, 1.64701, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_c0ety")
+
+[node name="line of sight" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -100)
