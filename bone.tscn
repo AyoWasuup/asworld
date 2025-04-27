@@ -83,6 +83,9 @@ shape = SubResource("ConcavePolygonShape3D_wac2w")
 [node name="alive_time" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-0.25882, -0.5567, -0.638362, 0.51764, 1.1134, 1.27672)
+
 [connection signal="timeout" from="split_time" to="." method="_on_split_time_timeout"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="alive_time" to="." method="_on_alive_time_timeout"]

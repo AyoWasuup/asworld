@@ -24,6 +24,8 @@ var hit_ground = false
 @export var health = 500
 @export var speed = 2000
 
+
+
 var current_tic = -1
 
 var spears_thrown = 0
