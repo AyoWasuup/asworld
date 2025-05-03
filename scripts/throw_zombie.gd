@@ -81,6 +81,7 @@ func _physics_process(delta: float) -> void:
 			
 			if shots_fire == 0:
 				stop_walk = false
+				has_walk_to = false
 		States.WALK:
 			var direction = Vector3.ZERO
 			
@@ -94,6 +95,7 @@ func _physics_process(delta: float) -> void:
 					print("run to area: " + str(area_colliding))
 					
 					found_place = true
+					has_walk_to = true
 					print("run to pro " + str(run_to.global_position))
 			
 			look_at(Vector3(target_pos.x, global_position.y, target_pos.z), Vector3.UP)
