@@ -88,8 +88,10 @@ shape = SubResource("BoxShape3D_272lk")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 simplify_path = true
 avoidance_enabled = true
+height = 4.13
 max_neighbors = 1
 use_3d_avoidance = true
+debug_enabled = true
 
 [node name="attack range" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26984, 0)
