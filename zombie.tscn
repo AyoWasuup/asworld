@@ -63,6 +63,14 @@ transform = Transform3D(0.662215, 0, -1.81188e-13, 1.81188e-13, 3.94711e-08, 0.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11453, -0.034668)
 shape = SubResource("CapsuleShape3D_l5jdr")
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="awake_collision"]
+simplify_path = true
+avoidance_enabled = true
+height = 2.21
+max_neighbors = 20
+use_3d_avoidance = true
+debug_enabled = true
+
 [node name="asleep_collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69705, -0.0369568)
 shape = SubResource("CapsuleShape3D_6il0m")
@@ -84,14 +92,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496883, -1.06345)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="foot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.166528, 0.390076)
 shape = SubResource("BoxShape3D_272lk")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-simplify_path = true
-avoidance_enabled = true
-height = 4.13
-max_neighbors = 1
-use_3d_avoidance = true
-debug_enabled = true
 
 [node name="attack range" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26984, 0)

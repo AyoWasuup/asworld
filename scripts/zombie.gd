@@ -13,7 +13,7 @@ extends CharacterBody3D
 
 @export var health = 0
 
-@onready var nav_agent = $NavigationAgent3D
+@onready var nav_agent = $awake_collision/NavigationAgent3D
 var nav_loaded: bool = false
 
 @onready var anim = $zombie_wip/AnimationPlayer
@@ -67,6 +67,7 @@ func state_machiene():
 		state = States.CHASING
 
 func _physics_process(delta: float) -> void:
+	
 	var get_map = NavigationServer3D.map_get_iteration_id(get_world_3d().get_navigation_map())
 	if get_map == 0:
 		print("get map == 0")
@@ -82,6 +83,14 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	state_machiene()
+	
+	if nav_agent.get_path() != null:
+		print("Agent has a path")
+	else:
+		print("NO path!")
+	
+	var spread = 1.5
+	var offset = Vector3(randf() * 2 - 1, 0, randf() * 2 - 1) * spread
 	
 	match state:
 		States.CHASING:
@@ -113,6 +122,9 @@ func _physics_process(delta: float) -> void:
 			
 			if look_atv != global_position and is_on_floor():
 				look_at(look_atv, Vector3.UP)
+			
+			if nav_agent.is_navigation_finished():
+				nav_agent.set_target_position(player.global_position + offset)
 			
 		States.DEAD:
 			anim.stop()
