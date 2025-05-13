@@ -157,7 +157,6 @@ light_energy = 0.125
 light_indirect_energy = 0.0
 
 [node name="Control" type="Control" parent="main menu"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -195,9 +194,10 @@ offset_left = 280.0
 offset_top = 252.0
 offset_right = 382.0
 offset_bottom = 275.0
-text = "pre-alpha 0.1"
+text = "pre-alpha 0.2"
 
 [node name="Death" type="Control" parent="main menu"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

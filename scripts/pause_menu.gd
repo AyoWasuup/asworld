@@ -46,7 +46,6 @@ func _ready() -> void:
 			print("Error: Could not open save file for reading.")
 
 
-
 func _process(delta: float) -> void:
 	match showstate:
 		ShowMode.Main:
