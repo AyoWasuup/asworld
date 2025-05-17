@@ -70,6 +70,10 @@ layer = 2
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("1_2nn8g")]
 process_mode = 3
+<<<<<<< HEAD
+=======
+visible = false
+>>>>>>> d69bb4954b2b23f6261a7cd43007bc2d0cb3fbfe
 
 [node name="main menu" type="Node3D" parent="."]
 script = ExtResource("2_e1koe")
@@ -156,7 +160,10 @@ light_energy = 0.125
 light_indirect_energy = 0.0
 
 [node name="Control" type="Control" parent="main menu"]
+<<<<<<< HEAD
 visible = false
+=======
+>>>>>>> d69bb4954b2b23f6261a7cd43007bc2d0cb3fbfe
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -194,7 +201,11 @@ offset_left = 280.0
 offset_top = 252.0
 offset_right = 382.0
 offset_bottom = 275.0
+<<<<<<< HEAD
 text = "pre-alpha 0.1"
+=======
+text = "pre-alpha 0.2"
+>>>>>>> d69bb4954b2b23f6261a7cd43007bc2d0cb3fbfe
 
 [node name="Death" type="Control" parent="main menu"]
 visible = false

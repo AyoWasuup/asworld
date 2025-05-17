@@ -33,10 +33,13 @@ window/stretch/aspect="keep_width"
 
 project/assembly_name="asworld"
 
+<<<<<<< HEAD
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/SceneBuilder-ce07779b4f99d8577e732ed8c6598e6d2fa85e7c/addons/SceneBuilder/plugin.cfg")
 
+=======
+>>>>>>> d69bb4954b2b23f6261a7cd43007bc2d0cb3fbfe
 [filesystem]
 
 import/blender/enabled=false
