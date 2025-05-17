@@ -1,0 +1,12 @@
+# Blender 4.2.3 LTS MTL File: 'player_wip.blend'
+# www.blender.org
+
+newmtl MaleSkin
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 0.733672 0.451876
+Ks 0.007547 0.007547 0.007547
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
