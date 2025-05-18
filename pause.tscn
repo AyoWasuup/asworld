@@ -1,0 +1,224 @@
+[gd_scene load_steps=3 format=3 uid="uid://kqfku58tcq54"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_s7i3d"]
+[ext_resource type="Texture2D" uid="uid://2nkri43tbej4" path="res://mygamewantsu.png" id="2_o7cl6"]
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s7i3d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1277.0
+offset_bottom = 719.0
+color = Color(0, 0, 0, 0.137255)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(643, 245)
+texture = ExtResource("2_o7cl6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = 68.0
+offset_right = 65.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="New game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "New game
+"
+
+[node name="controls" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "How to play"
+
+[node name="options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Options"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Exit to desktop
+"
+
+[node name="how to play" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 162.0
+offset_top = 158.0
+offset_right = 1072.0
+offset_bottom = 559.0
+color = Color(0.349711, 0, 0.0549653, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="how to play"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 459.0
+offset_bottom = 254.0
+
+[node name="Label" type="Label" parent="how to play/VBoxContainer"]
+layout_mode = 2
+text = " 'WASD' to move"
+
+[node name="Label2" type="Label" parent="how to play/VBoxContainer"]
+layout_mode = 2
+text = " 'SPACE' to jump (you can wall-jump by the way)"
+
+[node name="Label4" type="Label" parent="how to play/VBoxContainer"]
+layout_mode = 2
+text = " Move the mouse to look around
+"
+
+[node name="Label5" type="Label" parent="how to play/VBoxContainer"]
+layout_mode = 2
+text = " Shoot button to shoot
+"
+
+[node name="Label6" type="Label" parent="how to play/VBoxContainer"]
+layout_mode = 2
+text = " 'RMB' to ads
+"
+
+[node name="Label3" type="Label" parent="how to play/VBoxContainer"]
+layout_mode = 2
+text = " 'E' to interact
+"
+
+[node name="Label9" type="Label" parent="how to play/VBoxContainer"]
+layout_mode = 2
+text = " 'SHIFT' to sprint
+"
+
+[node name="Label7" type="Label" parent="how to play/VBoxContainer"]
+layout_mode = 2
+text = " 'Q' to roll
+"
+
+[node name="Label8" type="Label" parent="how to play/VBoxContainer"]
+layout_mode = 2
+text = " 'F' to boost yourself very fucking high (working on name)
+"
+
+[node name="ColorRect" type="ColorRect" parent="how to play"]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 14.0
+offset_right = 874.0
+offset_bottom = 272.0
+color = Color(0.623962, 0, 0.17567, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="how to play/ColorRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 261.0
+offset_bottom = 208.0
+text = "ESSENTIAL TIP:
+Try timing the roll, boost, jump (and maybe hold sprint) at diffrent times to see what you can pull off 
+
+spam this as much as you want, I had fun doing it  -icebox"
+
+[node name="Label" type="Label" parent="how to play"]
+layout_mode = 0
+offset_left = 732.0
+offset_top = 360.0
+offset_right = 867.0
+offset_bottom = 383.0
+text = "press 'ESC' to exit"
+
+[node name="Label2" type="Label" parent="how to play"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 295.0
+offset_right = 706.0
+offset_bottom = 318.0
+text = "More zombies spawn in the later the round you're on (right of the player ui),
+survive as long as possible"
+
+[node name="Label3" type="Label" parent="how to play"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = -27.0
+offset_right = 731.0
+offset_bottom = -4.0
+text = "FOLLOW @icebox30.09 on tiktok for the latest updates and later releases"
+
+[node name="options background" type="ColorRect" parent="."]
+layout_mode = 2
+offset_left = 162.0
+offset_top = 158.0
+offset_right = 1072.0
+offset_bottom = 559.0
+color = Color(0.349711, 0, 0.0549653, 1)
+
+[node name="Label" type="Label" parent="options background"]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 350.0
+offset_right = 884.0
+offset_bottom = 373.0
+text = "press 'ESC' to exit"
+
+[node name="Label4" type="Label" parent="options background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.5
+offset_top = -34.0
+offset_right = 37.5
+offset_bottom = -11.0
+grow_horizontal = 2
+text = "OPTIONS"
+
+[node name="options" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 162.0
+offset_top = 158.0
+offset_right = 1072.0
+offset_bottom = 279.0
+
+[node name="fullscreen" type="CheckButton" parent="options"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="mouse sens label" type="Label" parent="options"]
+layout_mode = 2
+text = "  Mouse sensitivity
+"
+
+[node name="Mouse Sens" type="HSlider" parent="options"]
+layout_mode = 2
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+value = 1.0
+
+[node name="reset" type="Button" parent="options"]
+layout_mode = 2
+text = "reset to default"
+
+[connection signal="pressed" from="VBoxContainer/New game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="toggled" from="options/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="options/reset" to="." method="_on_reset_pressed"]

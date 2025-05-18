@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://dflq6ji2bmob3"]
+
+[ext_resource type="Script" path="res://scripts/throw_zombie.gd" id="1_c55a2"]
+[ext_resource type="PackedScene" uid="uid://nnlpnhdo2sg5" path="res://models/zombie_wip.glb" id="1_obbda"]
+[ext_resource type="PackedScene" uid="uid://cugumm4isryhx" path="res://bone.tscn" id="2_fi7qa"]
+[ext_resource type="PackedScene" uid="uid://dcd1c3cr6ds1r" path="res://throw_zombie_walk_to.tscn" id="3_komhh"]
+[ext_resource type="Script" path="res://scripts/zombie_respawn.gd" id="3_rhh2s"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2k0ac"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p4n2x"]
+height = 1.19742
+
+[node name="throw_zombie" type="CharacterBody3D"]
+script = ExtResource("1_c55a2")
+bone_s = ExtResource("2_fi7qa")
+walk_to_s = ExtResource("3_komhh")
+
+[node name="zombie_wip" parent="." instance=ExtResource("1_obbda")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+
+[node name="Skeleton3D" parent="zombie_wip/Armature" index="0"]
+bones/0/position = Vector3(0.124775, -0.107241, -0.836041)
+bones/0/rotation = Quaternion(-0.602279, -0.111733, 0.107699, 0.783056)
+bones/1/rotation = Quaternion(0.0711032, 0.00187567, -0.0230733, 0.9972)
+bones/2/rotation = Quaternion(0.0840094, 0.000559254, -0.0135217, 0.996373)
+bones/3/rotation = Quaternion(0.0838521, 0.00199934, -0.0143214, 0.996373)
+bones/4/rotation = Quaternion(0.0149751, -0.00567271, -0.0441098, 0.998898)
+bones/5/rotation = Quaternion(-0.405895, -0.0501325, 0.092446, 0.907849)
+bones/8/rotation = Quaternion(-0.57794, -0.400898, 0.608244, -0.36784)
+bones/9/rotation = Quaternion(0.144598, -0.0652368, 0.258912, 0.952786)
+bones/10/rotation = Quaternion(-0.0910323, 0.00539749, 0.735652, 0.671193)
+bones/11/rotation = Quaternion(-0.246643, 0.27725, 0.148282, 0.916685)
+bones/12/rotation = Quaternion(-0.0561289, 0.00310637, -0.0606856, 0.996573)
+bones/13/rotation = Quaternion(0.0456179, 4.11428e-05, -0.00145783, 0.998958)
+bones/14/rotation = Quaternion(0.0227988, -0.000584916, -0.00100948, 0.999739)
+bones/17/rotation = Quaternion(0.592793, -0.40507, 0.565541, 0.405806)
+bones/18/rotation = Quaternion(0.285274, -0.0378802, -0.398088, 0.87104)
+bones/19/rotation = Quaternion(-0.205591, -0.000752855, -0.743094, 0.636823)
+bones/20/rotation = Quaternion(-0.0663161, -0.0209128, -0.0633029, 0.995569)
+bones/21/rotation = Quaternion(0.178593, 0.0159487, 0.0962307, 0.979076)
+bones/22/rotation = Quaternion(0.100402, -0.0074755, 0.00449906, 0.994909)
+bones/23/rotation = Quaternion(0.0503596, -0.00138863, 0.00257376, 0.998727)
+bones/26/rotation = Quaternion(0.0682126, 0.506873, 0.847116, -0.144297)
+bones/27/rotation = Quaternion(-0.502898, 0.0606151, 0.0536336, 0.860548)
+bones/28/rotation = Quaternion(0.570283, -0.0786853, -0.187042, 0.795991)
+bones/29/rotation = Quaternion(0.289413, -0.0656055, 0.0194554, 0.954755)
+bones/32/rotation = Quaternion(-0.0539955, 0.48505, 0.861949, 0.137313)
+bones/33/rotation = Quaternion(-0.492042, -0.0155361, -0.134718, 0.859944)
+bones/34/rotation = Quaternion(0.559199, 0.0950535, 0.234907, 0.789355)
+bones/35/rotation = Quaternion(0.288799, 0.0657037, -0.0192967, 0.954938)
+
+[node name="awake_collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11453, -0.034668)
+shape = SubResource("CylinderShape3D_2k0ac")
+
+[node name="asleep_collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69705, -0.0369568)
+shape = SubResource("CapsuleShape3D_p4n2x")
+disabled = true
+
+[node name="throw_timer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="bone axis" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.633, 0)
+
+[node name="bone spawn" type="Marker3D" parent="bone axis"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.54823)
+
+[node name="ZombieRes" type="Node" parent="." node_paths=PackedStringArray("asleep_col", "awake_col", "parent_zombie")]
+script = ExtResource("3_rhh2s")
+asleep_col = NodePath("../asleep_collision")
+awake_col = NodePath("../awake_collision")
+parent_zombie = NodePath("..")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="run to" type="Area3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="run to"]
+
+[node name="awake_collision" type="CollisionShape3D" parent="run to"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11453, -0.034668)
+shape = SubResource("CylinderShape3D_2k0ac")
+
+[connection signal="timeout" from="throw_timer" to="." method="_on_throw_timer_timeout"]
+[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_navigation_finished"]
+[connection signal="body_entered" from="run to" to="." method="_on_run_to_body_entered"]
+[connection signal="body_exited" from="run to" to="." method="_on_run_to_body_exited"]
+
+[editable path="zombie_wip"]

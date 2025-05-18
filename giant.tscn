@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwkwycuw534ls"]
+
+[ext_resource type="PackedScene" uid="uid://criv3g2rpkyvb" path="res://models/giant.glb" id="1_3h3yy"]
+[ext_resource type="Script" path="res://scripts/giant.gd" id="1_rvffv"]
+[ext_resource type="Texture2D" uid="uid://ci3ce4nl61qep" path="res://models/giant_zombie_wip_gore_texture.jpg" id="3_4hw3l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tyhkf"]
+albedo_texture = ExtResource("3_4hw3l")
+texture_filter = 0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wsxd6"]
+radius = 0.593178
+height = 2.63875
+
+[node name="giant" type="CharacterBody3D"]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 0, 1.25906, 0)
+script = ExtResource("1_rvffv")
+
+[node name="giant" parent="." instance=ExtResource("1_3h3yy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Cube" parent="giant" index="0"]
+visible = false
+
+[node name="Skeleton3D" parent="giant/Armature" index="0"]
+bones/2/rotation = Quaternion(-0.0340882, -5.74552e-11, 1.67753e-09, 0.999419)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.0446327, 3.97499e-11, -1.67804e-09, 0.999003)
+bones/4/rotation = Quaternion(0.0236816, -6.58776e-18, 1.49053e-17, 0.99972)
+bones/7/rotation = Quaternion(-0.555149, -0.42388, 0.57263, -0.429221)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(-0.0532775, 0.000696915, 0.0354178, 0.997951)
+bones/10/rotation = Quaternion(0.000703255, 9.01729e-05, 0.0388187, 0.999246)
+bones/11/rotation = Quaternion(-0.0805017, 0.00300649, -0.0462844, 0.995675)
+bones/11/scale = Vector3(1, 1, 1)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(-0.0533931, -0.000676782, -0.034934, 0.997962)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(-0.0073868, 0.000482829, -0.0340875, 0.999391)
+bones/18/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(0.00117875, 0.0208748, 0.998192, -0.0563494)
+bones/23/scale = Vector3(0.999995, 1, 0.999999)
+bones/24/rotation = Quaternion(-0.0661055, 4.32422e-05, -0.000695631, 0.997812)
+bones/25/scale = Vector3(1, 1, 1)
+bones/26/rotation = Quaternion(0.285923, -0.0649904, 0.0194408, 0.955848)
+bones/28/rotation = Quaternion(-0.00113839, 0.020184, 0.998206, 0.0563526)
+bones/28/scale = Vector3(1.00002, 1, 1)
+bones/29/rotation = Quaternion(-0.0660198, -4.25499e-05, 0.00070662, 0.997818)
+bones/30/rotation = Quaternion(0.513409, -0.0281761, 0.0168691, 0.857516)
+bones/30/scale = Vector3(1, 1, 1)
+bones/31/rotation = Quaternion(0.286134, 0.0647988, -0.019398, 0.955799)
+
+[node name="HumanMale" parent="giant/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_tyhkf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33862, 0)
+shape = SubResource("CapsuleShape3D_wsxd6")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[editable path="giant"]

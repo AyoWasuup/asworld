@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcd1c3cr6ds1r"]
+
+[ext_resource type="Script" path="res://scripts/throw_zombie_walk_to.gd" id="1_1eqx4"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t312n"]
+radius = 0.158661
+
+[sub_resource type="TextMesh" id="TextMesh_sn63r"]
+text = "go here"
+
+[node name="throw zombie walk to" type="Area3D"]
+script = ExtResource("1_1eqx4")
+
+[node name="awake_collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_t312n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TextMesh_sn63r")
+skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://qb1l2q3jjyhx"]
+
+[ext_resource type="Shader" path="res://scripts/ps1filter.gdshader" id="1_52dda"]
+[ext_resource type="PackedScene" path="res://node_3d.tscn" id="1_uwjeb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5x0p"]
+shader = ExtResource("1_52dda")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 12
+shader_parameter/dither_size = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+material = SubResource("ShaderMaterial_k5x0p")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(971, 546)
+
+[node name="Node3D" parent="SubViewport" instance=ExtResource("1_uwjeb")]

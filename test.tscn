@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl7jdgcqgy83o"]
+
+[ext_resource type="PackedScene" uid="uid://pg4jt0xt31t6" path="res://player.tscn" id="1_r6rks"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwf3x"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+size = Vector3(12, 7, 11)
+material = SubResource("StandardMaterial3D_uwf3x")
+
+[node name="player" parent="." instance=ExtResource("1_r6rks")]

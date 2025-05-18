@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://xprgd4k5374v"]
+
+[ext_resource type="Script" path="res://scripts/zombie_respawn.gd" id="1_pwq2g"]
+
+[node name="Zombie respawn" type="Node"]
+script = ExtResource("1_pwq2g")
+
+[node name="respawn timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="is_up" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64917, 0)
+target_position = Vector3(0, -2, 0)
+
+[connection signal="timeout" from="respawn timer" to="." method="_on_respawn_timer_timeout"]
