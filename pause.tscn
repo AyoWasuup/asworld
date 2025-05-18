@@ -18,11 +18,68 @@ offset_right = 1277.0
 offset_bottom = 719.0
 color = Color(0, 0, 0, 0.137255)
 
+[node name="level select" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -64.0
+offset_right = 113.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.418871, 0.0398818, 0.111102, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="level select"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_right = 96.0
+offset_bottom = 58.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="level select/HBoxContainer"]
+layout_mode = 2
+
+[node name="I-I" type="Button" parent="level select/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "1-1"
+
+[node name="Label" type="Label" parent="level select/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "highscore: 6"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="level select/HBoxContainer"]
+layout_mode = 2
+
+[node name="I-BOSS" type="Button" parent="level select/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "boss"
+
+[node name="Label" type="Label" parent="level select/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "highscore: 6"
+
+[node name="go_back" type="Button" parent="level select"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 148.0
+offset_right = 221.0
+offset_bottom = 179.0
+text = "go back"
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(643, 245)
 texture = ExtResource("2_o7cl6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -162,6 +219,7 @@ offset_bottom = -4.0
 text = "FOLLOW @icebox30.09 on tiktok for the latest updates and later releases"
 
 [node name="options background" type="ColorRect" parent="."]
+visible = false
 layout_mode = 2
 offset_left = 162.0
 offset_top = 158.0
@@ -190,6 +248,7 @@ grow_horizontal = 2
 text = "OPTIONS"
 
 [node name="options" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 offset_left = 162.0
 offset_top = 158.0
@@ -216,6 +275,9 @@ value = 1.0
 layout_mode = 2
 text = "reset to default"
 
+[connection signal="pressed" from="level select/HBoxContainer/VBoxContainer/I-I" to="." method="_on_ii_pressed"]
+[connection signal="pressed" from="level select/HBoxContainer/VBoxContainer2/I-BOSS" to="." method="_on_iboss_pressed"]
+[connection signal="pressed" from="level select/go_back" to="." method="_on_go_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/New game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]

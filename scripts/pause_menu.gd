@@ -3,6 +3,7 @@ class_name Pause
 
 @onready var game = $"../.."
 @onready var map = preload("res://crt_test.tscn")
+@onready var boss_map = preload("res://boss_island.tscn")
 @export var m: Node
 
 @onready var main_vbox = $VBoxContainer
@@ -10,13 +11,15 @@ class_name Pause
 @onready var options_vbox = $options
 @onready var options_bg = $"options background"
 @onready var howtoplay = $"how to play"
+@onready var level_select = $"level select"
 
 var path = "res://scripts/save_file.json"
 
 enum ShowMode {
 	Main,
 	Options,
-	HowToPlay
+	HowToPlay,
+	LevelSelect
 }
 
 @export var showstate = ShowMode.Main
@@ -55,12 +58,14 @@ func _process(delta: float) -> void:
 			options_bg.hide()
 			options_vbox.hide()
 			howtoplay.hide()
+			level_select.hide()
 		ShowMode.Options:
 			main_vbox.hide()
 			main_sprite.hide()
 			options_bg.show()
 			options_vbox.show()
 			howtoplay.hide()
+			level_select.hide()
 			
 			GlobalVar.settings.mouse_sens = $"options/Mouse Sens".value
 			var file = FileAccess.open(path, FileAccess.WRITE)
@@ -71,22 +76,27 @@ func _process(delta: float) -> void:
 			options_bg.hide()
 			options_vbox.hide()
 			howtoplay.show()
+			level_select.hide()
+		ShowMode.LevelSelect:
+			main_vbox.hide()
+			main_sprite.hide()
+			options_bg.hide()
+			options_vbox.hide()
+			howtoplay.hide()
+			level_select.show()
 
 func _on_new_game_pressed() -> void:
-	if not top_level:
-		top_level = true
-	
-	print("Mouse click detected on UI")
-	print(m)
-	if m != null:
-		delete_map()
-	add_map()
+	showstate = ShowMode.LevelSelect
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
-func add_map():
-	m = map.instantiate()
+func add_map(var1: int, var2: int):
+	match var2:
+		1:
+			m = map.instantiate()
+		2:
+			m = boss_map.instantiate()
 	game.add_child(m)
 	print(m)
 	game.new_game_pressed = true
@@ -116,3 +126,29 @@ func _on_fullscreen_toggled(toggled_on: bool) -> void:
 
 func _on_back_to_menu_pressed() -> void:
 	showstate = ShowMode.Main
+
+# 1-1
+func _on_ii_pressed() -> void:
+	if not top_level:
+		top_level = true
+	
+	print("Mouse click detected on UI")
+	print(m)
+	if m != null:
+		delete_map()
+	add_map(1, 1)
+
+
+func _on_go_back_pressed() -> void:
+	showstate = ShowMode.Main
+
+# 1-boss
+func _on_iboss_pressed() -> void:
+	if not top_level:
+		top_level = true
+	
+	print("Mouse click detected on UI")
+	print(m)
+	if m != null:
+		delete_map()
+	add_map(1, 2)
