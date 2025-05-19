@@ -28,6 +28,13 @@ enum States {
 
 var states = States.IDLE
 
+enum GunState {
+	SWORD,
+	HUNTER
+}
+
+var gunsatate = GunState.SHOTGUN
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -177,23 +184,25 @@ func _physics_process(delta):
 			model_anim.play("idle")
 		starting_run = true
 	
-	if Input.is_action_just_pressed("shoot1") and states == States.IDLE and hunter_l.can_shoot_v:
-		hunter_l.shoot_input = true
-		for gun in gun_hunter.get_children():
-			if gun.is_colliding():
-				var collision = gun.get_collider()
-				if collision.is_in_group("enemy"):
-					var after_dmg_health = collision.health - 30
-					
-					if after_dmg_health <= 0 and collision.health > 0:
-						money += 10
-						plus_money.show()
-						$ui/money_idc_timer.start()
-					
-					collision.health -= 30
-					collision.hit = true
-	else:
-		hunter_l.shoot_input = false
+	match gunsatate:
+		GunState.HUNTER:
+			if Input.is_action_just_pressed("shoot1") and states == States.IDLE and hunter_l.can_shoot_v:
+				hunter_l.shoot_input = true
+				for gun in gun_hunter.get_children():
+					if gun.is_colliding():
+						var collision = gun.get_collider()
+						if collision.is_in_group("enemy"):
+							var after_dmg_health = collision.health - 30
+							
+							if after_dmg_health <= 0 and collision.health > 0:
+								money += 10
+								plus_money.show()
+								$ui/money_idc_timer.start()
+							
+							collision.health -= 30
+							collision.hit = true
+			else:
+				hunter_l.shoot_input = false
 	
 	if interact_hand.is_colliding():
 		var coll = interact_hand.get_collider()
