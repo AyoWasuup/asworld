@@ -33,13 +33,15 @@ enum GunState {
 	HUNTER
 }
 
-var gunsatate = GunState.SHOTGUN
+var gunsatate = GunState.SWORD
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export var health = 300
 var phase_eng = 100
+
+var can_slice = true
 
 @onready var model = $player_wip
 @onready var model_anim = $player_wip/AnimationPlayer
@@ -203,6 +205,17 @@ func _physics_process(delta):
 							collision.hit = true
 			else:
 				hunter_l.shoot_input = false
+		GunState.SWORD:
+			if Input.is_action_pressed("shoot1") and states == States.IDLE:
+				if can_slice:
+					if $"player_wip/sword/hit time".is_stopped():
+						$"player_wip/sword/hit time".start()
+						$"player_wip/sword/anim time".start()
+						print("a zombie timer reset")
+				
+				$player_wip/sword_anim.play("attack")
+			else:
+				$player_wip/sword_anim.play("idle")
 	
 	if interact_hand.is_colliding():
 		var coll = interact_hand.get_collider()
@@ -289,3 +302,16 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_money_idc_timer_timeout() -> void:
 	plus_money.hide()
+
+
+func _on_hit_time_timeout() -> void:
+	if $"player_wip/sword hit detection".is_colliding():
+		var c = $"player_wip/sword hit detection".get_collider()
+		if c is Zombie:
+			c.health -= 300
+			print("a zombie sliced")
+	can_slice = false
+
+
+func _on_anim_time_timeout() -> void:
+	can_slice = true

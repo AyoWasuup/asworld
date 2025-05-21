@@ -25,55 +25,55 @@ albedo_texture = ExtResource("4_4m451")
 
 [sub_resource type="BoxMesh" id="BoxMesh_f7o7j"]
 
-[sub_resource type="Animation" id="Animation_hfgkq"]
-resource_name = "idle"
+[sub_resource type="Animation" id="Animation_eku33"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sword/MeshInstance3D:position")
+tracks/0/path = NodePath("sword:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.613773, 0.122714, 0.714093)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("sword/MeshInstance3D:rotation")
+tracks/1/path = NodePath("sword:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.25257, -1.87351, 0.0479068)]
+"values": [Vector3(-1.5293, 2.33324, 2.36375)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("sword:position")
+tracks/2/path = NodePath("sword/MeshInstance3D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.4, 0)]
+"values": [Vector3(1.21015, 0.0233455, 1.1269)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("sword:rotation")
+tracks/3/path = NodePath("sword/MeshInstance3D:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-1.5293, 2.83565, 2.36375)]
+"values": [Vector3(-0.0304453, 3.05177, -1.35481)]
 }
 
 [sub_resource type="Animation" id="Animation_hehgg"]
@@ -128,55 +128,55 @@ tracks/3/keys = {
 "values": [Vector3(-0.0304453, 3.05177, -1.35481)]
 }
 
-[sub_resource type="Animation" id="Animation_eku33"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_hfgkq"]
+resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sword:position")
+tracks/0/path = NodePath("sword/MeshInstance3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0.613773, 0.122714, 0.714093)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("sword:rotation")
+tracks/1/path = NodePath("sword/MeshInstance3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-1.5293, 2.33324, 2.36375)]
+"values": [Vector3(1.25257, -1.87351, 0.0479068)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("sword/MeshInstance3D:position")
+tracks/2/path = NodePath("sword:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.21015, 0.0233455, 1.1269)]
+"values": [Vector3(0, 0.4, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("sword/MeshInstance3D:rotation")
+tracks/3/path = NodePath("sword:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.0304453, 3.05177, -1.35481)]
+"values": [Vector3(-1.5293, 2.83565, 2.36375)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_um0ih"]
@@ -1987,10 +1987,6 @@ radius = 3.0
 collision_mask = 3
 script = ExtResource("1_2nxtj")
 crosshair = NodePath("ui/crosshair")
-paused = null
-dodge_frame_running = null
-money = null
-health = null
 
 [node name="player_wip" parent="." node_paths=PackedStringArray("t", "tm", "spin_t", "hunter_gun_mod", "camera", "head_target", "player_root") instance=ExtResource("2_75s1v")]
 script = ExtResource("3_ix2hy")
@@ -2104,12 +2100,24 @@ transform = Transform3D(-0.317139, -0.0629928, 0.948799, 0.949077, 0.0407677, 0.
 [node name="head_target" type="Node3D" parent="player_wip/hunter_rot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0284534, 2.61149, 0.363256)
 
+[node name="sword hit detection" type="RayCast3D" parent="player_wip"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3924, 0)
+target_position = Vector3(0, 0, 4)
+
 [node name="sword" type="Node3D" parent="player_wip"]
-transform = Transform3D(-0.0149667, 0.999437, 0.030003, 0.0291149, -0.029558, 0.999139, 0.999464, 0.0158273, -0.0286562, 0, 0, 0)
+transform = Transform3D(-0.0149615, 0.999437, 0.0299995, 0.0291115, -0.0295547, 0.999139, 0.999464, 0.0158219, -0.0286529, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player_wip/sword"]
-transform = Transform3D(-0.0718604, -1.68177, 0.00575923, -0.332849, 0.370096, 0.00195537, -0.0166498, -0.140148, -0.0639471, 1.21015, 0.0233455, 1.1269)
+transform = Transform3D(-0.106354, -2.48904, 0.00852397, -0.49262, 0.547744, 0.00289397, -0.0246421, -0.207426, -0.0946424, 1.21015, 0.0233455, 1.1269)
 mesh = SubResource("BoxMesh_f7o7j")
+
+[node name="hit time" type="Timer" parent="player_wip/sword"]
+wait_time = 0.067
+one_shot = true
+
+[node name="anim time" type="Timer" parent="player_wip/sword"]
+wait_time = 0.2
+one_shot = true
 
 [node name="sword_anim" type="AnimationPlayer" parent="player_wip"]
 libraries = {
@@ -2336,6 +2344,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_h4gou")
 
 [connection signal="animation_finished" from="player_wip/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="player_wip/sword/hit time" to="." method="_on_hit_time_timeout"]
+[connection signal="timeout" from="player_wip/sword/anim time" to="." method="_on_anim_time_timeout"]
 [connection signal="timeout" from="ui/money_idc_timer" to="." method="_on_money_idc_timer_timeout"]
 
 [editable path="player_wip"]
