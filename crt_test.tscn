@@ -402,10 +402,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0.56422, 9)
 
 [node name="player" parent="Node3D" instance=ExtResource("12_o7cqt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.98916, 18)
-paused = false
-dodge_frame_running = false
-money = 0
-health = 300
 
 [node name="Skeleton3D" parent="Node3D/player/player_wip/Armature" index="0"]
 bones/0/position = Vector3(0.00197554, -0.0477549, -1.05887)
@@ -469,8 +465,8 @@ transform = Transform3D(-0.00643745, -0.105108, 0.00260078, 0.0207856, -0.003849
 [node name="Cube_003" parent="Node3D/player/player_wip/Armature/Skeleton3D" index="3"]
 transform = Transform3D(-0.0120607, 0.124013, -0.00481835, -0.0182975, -0.00876423, -0.114742, -0.0840238, -0.0158922, 0.0256785, -0.227661, -0.0797378, -1.52349)
 
-[node name="sword" parent="Node3D/player/player_wip" index="5"]
-transform = Transform3D(-0.0149615, 0.999437, 0.0299995, 0.0291115, -0.0295547, 0.999139, 0.999464, 0.0158219, -0.0286529, 0, 0, 0)
+[node name="sword" parent="Node3D/player/player_wip" index="6"]
+transform = Transform3D(-0.0149614, 0.999437, 0.0299995, 0.0291115, -0.0295547, 0.999139, 0.999464, 0.0158219, -0.0286529, 0, 0, 0)
 
 [node name="MeshInstance3D" parent="Node3D/player/player_wip/sword" index="0"]
 transform = Transform3D(-0.07186, -1.68177, 0.0057594, -0.332849, 0.370094, 0.00195537, -0.0166499, -0.140152, -0.0639471, 1.21015, 0.0233455, 1.1269)

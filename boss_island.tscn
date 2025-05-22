@@ -29,10 +29,6 @@ environment = ExtResource("2_i3spy")
 
 [node name="player" parent="Node3D" instance=ExtResource("5_dhaip")]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 17.1943, 0)
-paused = false
-dodge_frame_running = false
-money = 0
-health = 300
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Node3D"]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)

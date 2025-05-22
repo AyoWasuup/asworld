@@ -32,6 +32,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lic41"]
+radius = 0.347088
+height = 2.80466
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_rjrbj"]
 radial_segments = 5
@@ -51,7 +53,7 @@ libraries = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-6.36398e-16, 2.61938e-08, 0.354898, 0.333073, 2.61938e-08, 0, 1.45591e-08, -0.599245, 1.55131e-08, 0, 0, 0)
+transform = Transform3D(7.64274e-16, -1.74846e-08, -0.4, -0.4, -1.74846e-08, 6.60026e-22, -1.74846e-08, 0.4, -1.74846e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_lic41")
 
 [node name="spin" type="Node3D" parent="."]
@@ -77,7 +79,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.85909e-08, -0.657373, 0, 0.42531, 2.87347e-08, 0, 0, 0, -0.435419, 0, 0, 0)
+transform = Transform3D(-1.74846e-08, 0.6, 0, -0.4, -2.62268e-08, 0, 0, 0, 0.4, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_wac2w")
 
 [node name="alive_time" type="Timer" parent="."]
