@@ -1,6 +1,4 @@
-# asworld version pre-alpha 0.1-dev
+# hello colleges
 
-this is meant for icebox (or ayowasuup)/future developers under icebox
-if you find this this github will be made private soon
-
-DISCLAMER FOR ANYONE PISSED OFF: ik the file-sorting whatever is a mess rn, I'll fix it once i realease the pre-alpha
+I made this public because it's the longest running project I made, it sadly ended because of some private issues.
+Some of the videos in the google drive should also show footage of when I was trying to market and build a fanbase for this game.
